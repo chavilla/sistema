@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Registrar') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -20,9 +20,9 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')
@@ -34,16 +34,33 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="nick" class="col-md-4 col-form-label text-md-right">{{ __('nick') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
                             <div class="col-md-6">
-                                <input id="nick" type="text" class="form-control @error('nick') is-invalid @enderror" name="nick" value="{{ old('nick') }}" required autocomplete="nick" autofocus>
-                                @error('nick')
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
+                            <div class="col-md-6">
+                                <select id="rol" class="form-control @error('rol') is-invalid @enderror" name="rol" value="{{ old('rol') }}" required autocomplete="rol" autofocus>
+                                <option value="">Seleccionar</option>
+                                <option value="user">Usuario</option>
+                                <option value="admin">Administrador</option>
+                                </select>
+                                @error('rol')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+                        </div>
+                        
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
