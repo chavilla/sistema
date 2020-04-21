@@ -30,3 +30,19 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+
+
+if (window.location.href.indexOf("list")>-1) {
+    
+    const notificacion=document.getElementById('notificacion');
+    if (notificacion){
+        console.log('Hola');
+        
+        setTimeout(() => {
+            notificacion.classList.add('ocultar');
+       }, 2000);        
+    }
+     
+}

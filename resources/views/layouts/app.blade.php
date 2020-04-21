@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     
 
     <!-- Styles -->
@@ -44,12 +45,12 @@
                             <li class="nav-item">
                                 <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
                         @else
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('create_user') }}">{{ __('Registrar Usuario') }}</a>
+                            </li>
+                        @endif
                             <li>
                                 <a href=""></a>
                             </li>
@@ -94,9 +95,9 @@
                 </a>
                 <div class="dropdown-menu submenu-movimientos" style="" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item text-primary py-2 text-left" href="">Entradas</a>
-                    <a class="dropdown-item text-primary py-2 text-left" href="">Productos</a>
-                    <a class="dropdown-item text-primary py-2 text-left" href="">categorías productos</a>
-                    <a class="dropdown-item text-primary py-2 text-left" href="">Usuarios</a>
+                <a class="dropdown-item text-primary py-2 text-left" href="">Productos</a>
+                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_categories')}}">categorías productos</a>
+                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_user')}}">Usuarios</a>
                 </div>
             </div>
         </nav>  
@@ -106,5 +107,8 @@
             @yield('content')
         </main>
     </div>
+    @section('footer') 
+    <script src="{{ asset('js/scripts.js') }}"></script>
+    @show
 </body>
 </html>

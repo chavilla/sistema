@@ -10882,3 +10882,21 @@ a.text-dark:focus {
   }
 }
 
+.table td{
+  font-size: 1.2rem !important;
+}
+
+.notify{
+  background-color: var(--green);
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+  padding: .7rem 0;
+  color: var(--white);
+  text-align: center;
+}
+
+.ocultar{
+  display: none !important;
+  transition: all 3s !important;
+}
