@@ -10890,13 +10890,35 @@ a.text-dark:focus {
   background-color: var(--green);
   margin: 0 auto;
   display: block;
-  width: 50%;
+  width: 90%;
   padding: .7rem 0;
   color: var(--white);
   text-align: center;
 }
 
+@media(min-width:768px){
+  .notify{
+    width: 25%;
+  }
+}
+
 .ocultar{
   display: none !important;
   transition: all 3s !important;
+}
+
+.btn-login{
+  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
+ background-blend-mode: multiply,multiply;
+ padding: .5rem 2rem;
+}
+
+.navegacion{
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%) !important;
+}
+
+.header-frm{
+  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
+  background-blend-mode: multiply,multiply;
+  color: var(--white);
 }

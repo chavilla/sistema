@@ -48,6 +48,9 @@
                         @else
                         @if (Route::has('register'))
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('create_user') }}">{{ __('Cambiar contraseña') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('create_user') }}">{{ __('Registrar Usuario') }}</a>
                             </li>
                         @endif
@@ -79,7 +82,7 @@
         </nav>
         @guest
         @else
-        <nav class="navegacion w-100 bg-primary p-3 d-flex flex-row position-relative">
+        <nav class="navegacion w-100  p-3 d-flex flex-row position-relative">
             <div class="dropdown pr-3 pr-lg-5">
                 <a class="btn dropdown-toggle text-white font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Movimientos
