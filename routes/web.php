@@ -41,5 +41,14 @@ Route::get('/delete-product/{id}', 'ProductController@delete')->name('delete_pro
 Route::post('/update-product', 'ProductController@update')->name('update_product');
 Route::post('/save-product', 'ProductController@save')->name('save_product');
 
+//Entries
+Route::get('/list-entries', 'EntryController@getAll')->name('list_entries');
+Route::get('/create-products', 'EntryController@create')->name('create_entry');
+Route::get('/edit-entry/{id}', 'EntryController@edit')->name('edit_entry');
+Route::get('/delete-entry/{id}', 'EntryController@delete')->name('delete_entry');
+Route::post('/update-entry', 'EntryController@update')->name('update_entry');
+Route::post('/save-entry', 'EntryController@save')->name('save_entry');
+
+
 /* Index */
 Route::get('/', 'HomeController@index');

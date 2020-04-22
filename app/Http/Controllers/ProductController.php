@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use App\Product;
 use App\Category;
 use App\User;
+use App\Entry;
 
 class ProductController extends Controller
 {
@@ -119,7 +120,10 @@ class ProductController extends Controller
     }
 
     public function delete($id){
-        $user=Product::where('id',$id)->delete();
+        $product=Product::where('id',$id)->delete();
+
+        $entry=Entry::where('product_id',$id)->delete();
+
         return redirect()->action('ProductController@getAll')
         ->with('status','Producto eliminado');   
     }
