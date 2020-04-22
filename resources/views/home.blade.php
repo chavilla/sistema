@@ -20,53 +20,38 @@
         </div>
     </div>
     <div class="information text-center pt-5">
-        <div class="row d-flex justify-content-around mb-3">
-            <div class="card  text-white bg-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                  <h5 class="card-title">Primary card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="row mb-3">
+            <div class="col-12 col-md-4">
+                <div class="card users text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h2>Usuarios</h2></div>
+                    <div class="card-body row">
+                        <p class="col-6"><i class="fas fa-user"></i></p>
+                       <p class="col-6">{{ $users ?? '' }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="card  text-white bg-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Secondary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+           
+            <div class="col-12 col-md-4">
+                <div class="card products text-white bg-danger mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h2>Productos</h2></div>
+                    <div class="card-body row">
+                        <p class="col-6"><i class="fab fa-product-hunt"></i></p>
+                        <p class="col-6">{{ $products }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="card  text-white bg-success mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="row d-flex justify-content-around mt-3">
-            <div class="card   text-white bg-danger mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Danger card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card   text-white bg-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Warning card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card   text-white bg-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Info card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="col-12 col-md-4">
+                <div class="card categories text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h2>Categorías</h2></div>
+                    <div class="card-body row">
+                        <p class="col-6"><i class="fas fa-sitemap"></i></p>
+                       <p class="col-6">{{ $categories}}</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+      
 </div>
 @endsection

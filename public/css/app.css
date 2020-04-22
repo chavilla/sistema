@@ -10922,3 +10922,19 @@ a.text-dark:focus {
   background-blend-mode: multiply,multiply;
   color: var(--white);
 }
+
+.information p{
+  font-size: 4rem;
+}
+
+.users{
+  box-shadow: 6px 10px 11px -9px rgba(52,144,220,1) !important;
+}
+
+.products{
+  box-shadow: 6px 10px 11px -9px rgba(227,52,47,1) !important;
+}
+
+.categories{
+  box-shadow: 6px 10px 11px -9px rgba(56,193,114,1) !important;
+}

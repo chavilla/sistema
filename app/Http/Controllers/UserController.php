@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Http;
 
 class UserController extends Controller
 {
@@ -89,6 +90,18 @@ class UserController extends Controller
         $user=User::where('id',$id)->delete();
         return redirect()->action('UserController@getAll')
         ->with('status','Usuario eliminado');   
+    }
+
+    public function getApi(){
+
+        $demodata=[
+            'id'=>'1',
+            'name'=>'Jesús',
+        ];
+
+        
+
+        return response()->json($demodata);
     }
 
 }

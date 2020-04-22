@@ -98,7 +98,7 @@
                 </a>
                 <div class="dropdown-menu submenu-movimientos" style="" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item text-primary py-2 text-left" href="">Entradas</a>
-                <a class="dropdown-item text-primary py-2 text-left" href="">Productos</a>
+                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_products')}}">Productos</a>
                 <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_categories')}}">categorías productos</a>
                 <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_user')}}">Usuarios</a>
                 </div>
