@@ -2,12 +2,12 @@
 @section('content')
 
 @if (session('status'))
-<div id="notificacion" class=" text-white text-center pt-3 pb-3 bg-success  w-25 m-auto mt-3">
+<div id="notificacion" class="text-center pt-3 pb-3  alert alert-success   w-25 m-auto mt-3">
     <strong >{{ session('status') }}</strong>
 </div>
 @endif
 <h1 class="text-center mt-5 font-weight display-5">Usuarios registrados</h1>
-<div class="container  mt-5" id="cont-tabla">
+<div class="container mt-5" id="cont-tabla">
     <table class="table table-borderless" id="tabla-contactos">
         <thead class="thead-dark p-2">
             <th>Nombre</th>

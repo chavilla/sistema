@@ -11,7 +11,7 @@
 
 
 @if (session('status'))
-<div id="notificacion" class=" text-white text-center notificacion pt-3 pb-3 bg-success  w-25 m-auto mt-3">
+<div id="notificacion" class="text-center pt-3 pb-3  alert alert-success   w-25 m-auto mt-3">
     <strong >{{ session('status') }}</strong>
 </div>
 @endif

@@ -4,7 +4,7 @@
 
 <h1 class="text-center mt-3">Categorías para los productos</h1>
 @if(session('status'))
-    <div id="notificacion" class="notify">
+    <div id="notificacion" class="text-center pt-3 pb-3  alert alert-success   w-25 m-auto mt-3">
         <strong class="">{{session('status')}}</strong>
     </div>  
 @endif  

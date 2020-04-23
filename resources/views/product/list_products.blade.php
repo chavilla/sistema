@@ -3,10 +3,11 @@
 @section('content')
 <h1 class="text-center mt-5 font-weight display-4">Lista de productos</h1>
 @if (session('status'))
-    <div id="notificacion" class=" text-white text-center notificacion pt-3 pb-3 bg-success  w-25 m-auto mt-3">
+    <div id="notificacion" class="text-center pt-3 pb-3  alert alert-success   w-25 m-auto mt-3">
         <strong >{{ session('status') }}</strong>
     </div>
 @endif
+
 <div id="cont-tabla" class="pl-5 pr-5 mt-5 cont-tabla">
 <a href="{{ action('ProductController@create')}}" class="btn btn-primary btn-crea mb-5 p-1">Crear producto</a>
     <table class="table table-productos  table-responsive-md" id="tabla-poductos">
@@ -23,7 +24,7 @@
         <tbody>
             @foreach($products as $product)
             <tr>
-            <td>{{$product->id}}</td>
+                <td>{{$product->id}}</td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->category_id}}</td>
                 <td>{{$product->count}}</td>
