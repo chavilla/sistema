@@ -10938,3 +10938,14 @@ a.text-dark:focus {
 .categories{
   box-shadow: 6px 10px 11px -9px rgba(56,193,114,1) !important;
 }
+
+/*Invoices---*/
+
+.header-card{
+  background-color: #bce8f1 !important;
+  opacity: 0.8;
+}
+
+.enlace a{
+  font-size: 1.3rem;
+}

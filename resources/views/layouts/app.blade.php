@@ -88,7 +88,7 @@
                 Movimientos
                 </a>
                 <div class="dropdown-menu submenu-movimientos" style="" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item text-primary py-2 text-left" href="">Facturación</a>
+                    <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_invoices')}}">Facturación</a>
                     <a class="dropdown-item text-primary py-2 text-left" href="#">Inventarios</a>
                 </div>
             </div>

@@ -16,7 +16,7 @@ class Category extends Model
      //Relation many to one
      public function product()
      {
-         return $this->belongsTo('App\Product', 'idProduct');
+         return $this->belongsTo('App\Product', 'id');
      }
 
      public function products()

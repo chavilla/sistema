@@ -21,7 +21,7 @@
     </div>
     <div class="information text-center pt-5">
         <div class="row mb-3">
-            <div class="col-12 col-md-4">
+            <div class="col-sm-12 col-md-4">
                 <div class="card users text-white bg-primary mb-3" style="max-width: 18rem;">
                     <div class="card-header"><h2>Usuarios</h2></div>
                     <div class="card-body row">

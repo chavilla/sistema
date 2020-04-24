@@ -33,7 +33,6 @@ class Product extends Model
         return $this->belongsTo('App\Category','category_id');
     }
 
-
     //Relation many to one
     public function user(){
             return $this->belongsTo('App\User', 'user_id');
@@ -43,6 +42,10 @@ class Product extends Model
     public function entry()
     {
         return $this->hasMany('App\Entry');
+    }
+
+    public function detail(){
+        return $this->hasMany('App\Detail');
     }
 
 }

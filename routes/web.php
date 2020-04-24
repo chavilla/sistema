@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+/* Index */
+Route::get('/', 'HomeController@index');
+
 //User
 Route::post('/register', 'UserController@save')->name('register');
 Route::get('/list', 'UserController@getAll')->name('list_user');
@@ -43,12 +46,15 @@ Route::post('/save-product', 'ProductController@save')->name('save_product');
 
 //Entries
 Route::get('/list-entries', 'EntryController@getAll')->name('list_entries');
-Route::get('/create-products', 'EntryController@create')->name('create_entry');
+Route::get('/create-entry', 'EntryController@create')->name('create_entry');
 Route::get('/edit-entry/{id}', 'EntryController@edit')->name('edit_entry');
 Route::get('/delete-entry/{id}', 'EntryController@delete')->name('delete_entry');
 Route::post('/update-entry', 'EntryController@update')->name('update_entry');
 Route::post('/save-entry', 'EntryController@save')->name('save_entry');
 
 
-/* Index */
-Route::get('/', 'HomeController@index');
+Route::get('/list-invoices', 'InvoiceController@getAll')->name('list_invoices');
+Route::get('/create-invoice', 'InvoiceController@create')->name('create_invoice');
+
+
+
