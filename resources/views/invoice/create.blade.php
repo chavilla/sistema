@@ -13,13 +13,13 @@
         <div class="card-body">
             <div class="inputs px-3 row">
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
-                    <input type="text" class="form-control" placeholder="Cliente">
+                    <input type="text" id="inputClient" class="form-control dataName" placeholder="Cliente" data-toggle="modal" data-target=".bd-example-modal-lg">
                 </div>
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
-                    <input type="text" class="form-control" placeholder="Teléfono">
+                    <input type="text" class="form-control dataPhone" placeholder="Teléfono">
                 </div>
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
-                    <input type="text" class="form-control" placeholder="Email">
+                    <input type="text" class="form-control dataNit" placeholder="Nit">
                 </div>
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
                     <input type="text" class="form-control" placeholder="Vendedor" disabled value="{{Auth::user()->name}}">
@@ -75,6 +75,47 @@
             {{-- end Modal Client --}}
 
             {{-- Modal show clients --}}
+
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                      <h4 class="modal-title text-center" id="">Seleccione un cliente</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="row col-12">
+                        <i class="fas fa-search col-1 pt-2"></i>
+                        <input type="search" class="form-control col-10">
+                    </div>
+                      <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="">Nit</th>
+                                <th>Nombre</th>
+                                <th>Teléfono</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($clients as $client)
+                            <tr>
+                                <td id=""><input type="radio" class="check"></td>
+                                <td id="nit" >{{$client->nit}}</td>
+                                <td id="name">{{$client->name}}</td>
+                                <td id="phone">{{$client->phone}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
         </div>
     </div>
 </div>

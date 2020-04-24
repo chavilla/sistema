@@ -81,4 +81,25 @@ $(document).ready(function(){
 
     /* Modal to show clients */
 
+    var check=$('.check');
+    check.on('click',function(){
+        var row=$(this).parent().parent().find('td');        
+        var name=$('.dataName'),
+            phone=$('.dataPhone'),
+            nit=$('.dataNit');
+            name.val(row[2].textContent);
+            nit.val(row[1].textContent);
+            phone.val(row[3].textContent);
+            clean();
+            $('.modal-backdrop').removeClass('show');
+            if ('.modal-content') {
+                $('.modal-content').hide();    
+            }else{
+                $('.modal-content').show();
+            }
+            
+        
+    })
+    
+
 })

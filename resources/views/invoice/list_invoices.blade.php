@@ -10,7 +10,20 @@
             </div>
         </div>
         <div class="card-body">
-            
+            <table class="table table-responsive-md">
+                <thead>
+                    <tr>
+                        <th>Factura No.</th>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Vendedor</th>
+                        <th>Estado</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
 </div>
