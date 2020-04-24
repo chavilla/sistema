@@ -52,9 +52,12 @@ Route::get('/delete-entry/{id}', 'EntryController@delete')->name('delete_entry')
 Route::post('/update-entry', 'EntryController@update')->name('update_entry');
 Route::post('/save-entry', 'EntryController@save')->name('save_entry');
 
-
+//Invoices
 Route::get('/list-invoices', 'InvoiceController@getAll')->name('list_invoices');
 Route::get('/create-invoice', 'InvoiceController@create')->name('create_invoice');
 
+//Clients
+Route::get('/list-clients', 'ClientController@getAll')->name('list_clients');
+Route::post('/create-client', 'ClientController@create')->name('create-client');
 
 

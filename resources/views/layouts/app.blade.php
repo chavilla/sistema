@@ -11,6 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/client.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -97,6 +99,7 @@
                 Consultas
                 </a>
                 <div class="dropdown-menu submenu-movimientos" style="" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_clients')}}">Clientes</a>
                 <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_entries')}}">Entradas</a>
                 <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_products')}}">Productos</a>
                 <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_categories')}}">categorías productos</a>

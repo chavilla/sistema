@@ -11,7 +11,6 @@ class Client extends Model
         'name',
         'phone',
         'email',
-        'direction',
     ];
 
     public function invoices(){
