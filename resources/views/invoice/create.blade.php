@@ -4,7 +4,7 @@
 <div class="container">
     <div id="divmsg" style="display:none" class="alert alert-success col-12 col-md-4 text-center fixed-bottom" role="alert">
     </div>
-    <div id="diverror" style="display:none" class="alert alert-danger col-12 col-md-4 text-center fixed-bottom" role="alert">
+    <div id="diverror" style="display:none" class="alert alert-danger col-12 col-md-6 m-auto text-center fixed-bottom" role="alert">
     </div>
     <div class="card border row">
         <div class="card-header header-card w-100 m-0 row">
@@ -13,7 +13,7 @@
         <div class="card-body">
             <div class="inputs px-3 row">
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
-                    <input type="text" id="inputClient" class="form-control dataName" placeholder="Cliente" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <input type="text" id="inputClient" class="form-control dataName" placeholder="Cliente">
                 </div>
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
                     <input type="text" class="form-control dataPhone" placeholder="Teléfono">
@@ -55,6 +55,10 @@
                           <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" id="name">
                         </div>
                         <div class="form-group">
+                          <label for="nit" class="col-form-label">Nit:</label>
+                          <input type="text" class="form-control  @error('nit') is-invalid @enderror" name="nit" id="nit">
+                        </div>
+                        <div class="form-group">
                           <label for="phone" class="col-form-label">Teléfono:</label>
                           <input type="text" class="form-control  @error('phone') is-invalid @enderror" name="phone" id="phone">
                         </div>
@@ -76,45 +80,45 @@
 
             {{-- Modal show clients --}}
 
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+            <div class="bd-example-modal-lg hideClients" id='modal'>
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
 
-                    <div class="modal-header">
-                      <h4 class="modal-title text-center" id="">Seleccione un cliente</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                    <div class="row col-12">
-                        <i class="fas fa-search col-1 pt-2"></i>
-                        <input type="search" class="form-control col-10">
-                    </div>
-                      <table class="table mt-5">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th class="">Nit</th>
-                                <th>Nombre</th>
-                                <th>Teléfono</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($clients as $client)
-                            <tr>
-                                <td id=""><input type="radio" class="check"></td>
-                                <td id="nit" >{{$client->nit}}</td>
-                                <td id="name">{{$client->name}}</td>
-                                <td id="phone">{{$client->phone}}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                      </table>
-                    </div>
-                    
-                </div>
-            </div>
+                      <div class="modal-header">
+                        <h4 class="modal-title text-center" id="">Seleccione un cliente</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                      <div class="row col-12">
+                          <i class="fas fa-search col-1 pt-2"></i>
+                          <input type="search" class="form-control col-10">
+                      </div>
+                        <table class="table mt-5">
+                          <thead>
+                              <tr>
+                                  <th></th>
+                                  <th class="">Nit</th>
+                                  <th>Nombre</th>
+                                  <th>Teléfono</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              @foreach($clients as $client)
+                              <tr>
+                                  <td id=""><input type="radio" class="check"></td>
+                                  <td id="nit" >{{$client->nit}}</td>
+                                  <td id="name">{{$client->name}}</td>
+                                  <td id="phone">{{$client->phone}}</td>
+                              </tr>
+                              @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                      
+                  </div>
+              </div>
             </div>
         </div>
     </div>

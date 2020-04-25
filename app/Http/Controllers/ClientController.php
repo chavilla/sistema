@@ -21,9 +21,17 @@ class ClientController extends Controller
 
         $client=new Client();
         $client->name=$request->name;
+        $client->nit=$request->nit;
         $client->phone=$request->phone;
         $client->email=$request->email;
         $client->save();
-        return response()->json(['message'=>'Cliente insertado']);
+        return response()->json([
+            'message'=>'Cliente insertado',
+            'name'=>$client->name,
+            'nit'=>$client->nit,
+            'phone'=>$client->phone,
+            'email'=>$client->email
+            ]);
+            
     }
 }

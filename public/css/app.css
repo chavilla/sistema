@@ -10949,3 +10949,25 @@ a.text-dark:focus {
 .enlace a{
   font-size: 1.3rem;
 }
+
+#modal{
+  position: absolute !important;
+  top: 5px !important;
+  left: 50%;
+}
+
+.showClients{
+  transform: translateX(-50%);
+  transition: all 0.6s ease;
+}
+
+.hideClients{
+  transform: translateX(-200%);
+  transition: all 0.4s ease;
+}
+
+@media(min-width:768px){
+  #modal{
+    width: 85%;
+  }
+}

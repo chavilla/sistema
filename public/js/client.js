@@ -3,17 +3,26 @@ $(document).ready(function(){
     
     var frm=$('#frmClient');
 
+    function baseUrl() {
+        var pathArray=location.href.split('/');
+        var protocol=pathArray[0];
+        var host=pathArray[2];
+        var url=protocol + '//' + host + '/';
+        return url;
+    }
+
     function clean() {
         $('#name').val('');
         $('#phone').val('');
         $('#email').val('');
+        $('#nit').val('');
     }
 
     function showMessage(msg){
         $('#divmsg').empty();
         $('#divmsg').append("<p>"+msg+"</p>");
         $('#divmsg').show(2000);
-        $('#divmsg').hide(5000);
+        $('#divmsg').hide();
 
     }
     function showError(msg){
@@ -32,9 +41,10 @@ $(document).ready(function(){
 
     frm.on('submit', function(e){
         e.preventDefault();
-        var nameInput=$('#name').val();
-        var phoneInput=$('#phone').val();
-        var emailInput=$('#email').val();
+        var nameInput=$('#name').val().trim();
+        var phoneInput=$('#phone').val().trim();
+        var emailInput=$('#email').val().trim();
+        var nitInput=$('#nit').val().trim();
 
         /* Validate name */
         function onlyLetters(Input) {
@@ -49,37 +59,56 @@ $(document).ready(function(){
             return regex.test(input);
         }
         var validatePhone=onlyNumbers(phoneInput);
-        
+        var validateNit=onlyNumbers(nitInput);
         /* Validate email */
         function onlyEmail(input){
             var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
             return regex.test(input); 
         }
         var validateEmail=onlyEmail(emailInput);
+
         
-        if (validateName && validatePhone && validateEmail){
+        
+        if (validateName && validatePhone && validateEmail && validateNit){
             $.ajax({
                 type:'POST',
-                url:"http://localhost/create-client",
-                data:{ name:nameInput,phone:phoneInput,email:emailInput },
+                url:baseUrl()+"create-client",
+                data:{ name:nameInput,phone:phoneInput,email:emailInput,nit:nitInput},
                 success:function(data){
                     showMessage(data.message);
                     clean();
                     $('.modal-backdrop').removeClass('show');
+                    
+                    /* var tbody=$('tbody');
+                    var row="<tr>"+
+                        '<td>'+'<input type="radio" class="check">'+'</td>'+
+                        '<td>'+data.nit+'</td>'+
+                        '<td>'+data.name+'</td>'+
+                        '<td>'+data.phone+'</td>'+
+                        '</tr>';
+
+                        tbody.append(row); */
+                        window.location=baseUrl()+'create-invoice';
+                    
                 }
             })
         }
 
         else{
             showError('Algunos de los datos son incorrectos');
-            $('.modal-backdrop').removeClass('show');
+           clean();
         }
-        
-       
-
     });
 
     /* Modal to show clients */
+    $('#inputClient').on('click',function(){
+        $('#modal').removeClass('hideClients'); 
+        $('#modal').addClass('showClients');
+        $('.close').on('click',function(){
+            $('#modal').removeClass('showClients'); 
+            $('#modal').addClass('hideClients');
+        })
+    })
 
     var check=$('.check');
     check.on('click',function(){
@@ -90,15 +119,9 @@ $(document).ready(function(){
             name.val(row[2].textContent);
             nit.val(row[1].textContent);
             phone.val(row[3].textContent);
-            clean();
-            $('.modal-backdrop').removeClass('show');
-            if ('.modal-content') {
-                $('.modal-content').hide();    
-            }else{
-                $('.modal-content').show();
-            }
-            
-        
+            $(this).prop('checked',false);
+            $('#modal').removeClass('showClients'); 
+            $('#modal').addClass('hideClients');
     })
     
 
