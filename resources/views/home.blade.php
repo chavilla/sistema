@@ -42,7 +42,18 @@
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="card categories text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card clients text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h2>Clientes</h2></div>
+                    <div class="card-body row">
+                        <p class="col-6"><i class="fab fa-creative-commons-by"></i></p>
+                       <p class="col-6">{{ $clients}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-12 col-md-4">
+                <div class="card categories text-white bg-purple mb-3" style="max-width: 18rem;">
                     <div class="card-header"><h2>Categorías</h2></div>
                     <div class="card-body row">
                         <p class="col-6"><i class="fas fa-sitemap"></i></p>

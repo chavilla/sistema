@@ -6991,6 +6991,10 @@ button.bg-success:focus {
   background-color: #6cb2eb !important;
 }
 
+.bg-purple{
+  background-color: var(--purple) !important;
+}
+
 a.bg-info:hover,
 a.bg-info:focus,
 button.bg-info:hover,
@@ -10935,8 +10939,13 @@ a.text-dark:focus {
   box-shadow: 6px 10px 11px -9px rgba(227,52,47,1) !important;
 }
 
-.categories{
+.clients{
   box-shadow: 6px 10px 11px -9px rgba(56,193,114,1) !important;
+ 
+}
+
+.categories{
+  box-shadow:  6px 10px 11px -9px var(--purple) !important;
 }
 
 /*Invoices---*/
@@ -10958,7 +10967,7 @@ a.text-dark:focus {
 
 .showClients{
   transform: translateX(-50%);
-  transition: all 0.6s ease;
+  transition: all .6s ease;
 }
 
 .hideClients{

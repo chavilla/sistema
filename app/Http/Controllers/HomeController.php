@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Product;
 use App\Category;
+use App\Client;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,12 +27,14 @@ class HomeController extends Controller
     public function index()
     {
         $countUsers=User::all()->count();
+        $countClients=Client::all()->count();
         $countProducts=Product::all()->count();
         $countCategories=Category::all()->count();
         return view('home', array(
             'users'=>$countUsers,
             'products'=>$countProducts,
-            'categories'=>$countCategories
+            'categories'=>$countCategories,
+            'clients'=>$countClients
         ));
     }
 }
