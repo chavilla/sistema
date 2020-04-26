@@ -8,6 +8,11 @@ use App\Product;
 
 class EntryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function getAll(){
         $entries=Entry::all();
         return view('entry.list_entries',['entries'=>$entries]);

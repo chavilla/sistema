@@ -80,17 +80,16 @@
 
             {{-- Modal show clients --}}
 
-            <div class="bd-example-modal-lg hideClients" id='modal'>
+            <div class="bd-example-modal-lg hideClients modal-clients" id='modal'>
               <div class="modal-dialog modal-lg">
                   <div class="modal-content">
-
-                      <div class="modal-header">
-                        <h4 class="modal-title text-center" id="">Seleccione un cliente</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
+                    <div class="modal-header">
+                      <h4 class="modal-title text-center" id="">Seleccione un cliente</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
                       <div class="row col-12">
                           <i class="fas fa-search col-1 pt-2"></i>
                           <input type="search" class="form-control col-10">
@@ -99,7 +98,7 @@
                           <thead>
                               <tr>
                                   <th></th>
-                                  <th class="">Nit</th>
+                                  <th class="">Rut</th>
                                   <th>Nombre</th>
                                   <th>Teléfono</th>
                               </tr>
@@ -115,13 +114,71 @@
                               @endforeach
                           </tbody>
                         </table>
-                      </div>
-                      
+                    </div> 
                   </div>
               </div>
             </div>
+
+            {{-- Modal show products --}}
+            <div class="bd-example-modal-lg hideProducts modal-products" id=''>
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title text-center" id="">Seleccione un producto</h4>
+                      <button type="button" class="close-prod" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row col-12">
+                          <i class="fas fa-search col-1 pt-2"></i>
+                          <input type="search" class="form-control col-10">
+                      </div>
+                        <table class="table mt-5">
+                          <thead>
+                              <tr>
+                                  <th></th>
+                                  <th>Código</th>
+                                  <th>Nombre</th>
+                                  <th>Precio</th>
+                                  <th>Impuesto</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              @foreach($products as $product)
+                              <tr>
+                                  <td id=""><input type="radio" class="check-prod"></td>
+                                  <td id="id" >{{$product->id}}</td>
+                                  <td id="name">{{$product->name}}</td>
+                                  <td id="price">{{$product->price}}</td>
+                                  <td id="tax">{{$product->tax}}</td>
+                              </tr>
+                              @endforeach
+                          </tbody>
+                        </table>
+                    </div> 
+                  </div>
+              </div>
+            </div>
+
+            {{-- Table item --}}
+            <table class="table table-items mt-4">
+              <thead>
+                <tr>
+                  <th>Cantidad</th>
+                  <th>Código</th>
+                  <th>Descripción</th>
+                  <th>Precio</th>
+                  <th>Impuesto</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+            </table>
         </div>
     </div>
 </div>
 
 @stop
+
+<script src="{{ asset('js/client.js') }}" defer></script>
+    <script src="{{ asset('js/detail.js') }}" defer></script>

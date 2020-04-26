@@ -73,6 +73,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #f8fafc;
+  overflow: hidden;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10959,24 +10960,47 @@ a.text-dark:focus {
   font-size: 1.3rem;
 }
 
-#modal{
+.modal-clients{
   position: absolute !important;
   top: 5px !important;
-  left: 50%;
+  left: -150%;
+}
+
+.modal-content{
+  max-height: 400px !important;
+  overflow-y: scroll !important;
 }
 
 .showClients{
+  left: 50%;
   transform: translateX(-50%);
   transition: all .6s ease;
 }
 
 .hideClients{
   transform: translateX(-200%);
-  transition: all 0.4s ease;
+  transition: all 0.6s ease;
 }
 
 @media(min-width:768px){
-  #modal{
+  .modal-clients, .modal-products{
     width: 85%;
   }
+}
+
+.modal-products{
+  position: absolute !important;
+  top: 5px !important;
+  left: 150%;
+}
+
+.showProducts{
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all .6s ease;
+}
+
+.hideProducts{
+  transform: translateX(120%);
+  transition: all .6s ease;
 }

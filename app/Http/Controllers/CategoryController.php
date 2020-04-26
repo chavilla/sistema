@@ -8,6 +8,11 @@ use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function getAll(){
         $categories=Category::all();
         return view('categories.list_categories',['categories'=>$categories]);

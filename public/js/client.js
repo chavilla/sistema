@@ -102,11 +102,11 @@ $(document).ready(function(){
 
     /* Modal to show clients */
     $('#inputClient').on('click',function(){
-        $('#modal').removeClass('hideClients'); 
-        $('#modal').addClass('showClients');
+        $('.modal-clients').removeClass('hideClients'); 
+        $('.modal-clients').addClass('showClients');
         $('.close').on('click',function(){
-            $('#modal').removeClass('showClients'); 
-            $('#modal').addClass('hideClients');
+            $('.modal-clients').removeClass('showClients'); 
+            $('.modal-clients').addClass('hideClients');
         })
     })
 

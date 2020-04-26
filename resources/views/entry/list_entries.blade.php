@@ -23,7 +23,7 @@
             <th>Producto</th>
             <th>Cantidad</th>
             <th>Costo</th>
-            <th>Fecha</th>
+            <th>Usuario</th>
             <th>Acciones</th>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
             <td>{{$entry->product->name}}</td>
             <td>{{$entry->count}}</td>
             <td>{{$entry->cost}}</td>
-            <td>{{$entry->user_id}}</td>
+            <td>{{$entry->user->name}}</td>
             <td>
                 <a href="{{action('EntryController@delete', ['id'=>$entry->id])}}" class="btn btn-eliminar"><i class="fas fa-trash-alt text-danger"></i></a>
             </td>     

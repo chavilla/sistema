@@ -6,6 +6,11 @@ use App\Client;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function getAll(){
         $clients=Client::all();
         return view('client.list_clients',['clients'=>$clients]);
