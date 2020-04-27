@@ -47,10 +47,10 @@ class EntryController extends Controller
         ));
 
         $productCount=Product::find($idProd);
-        $countUpdated=intval($productCount->count+$count);
+        $countUpdated=intval($productCount->stock+$count);
         $product=Product::where('id',$idProd)
         ->update(array(
-            'count'=>$countUpdated
+            'stock'=>$countUpdated
         ));
 
         if ($entry && $product) {
@@ -71,11 +71,11 @@ class EntryController extends Controller
         $entryCount=Entry::find($id);
         $entry=Entry::where('id',$id)->delete();
         /* Restar a la cantidad del producto la cantidad de la entrada a eliminar */
-        $countUpdated=intval($entryCount->product->count-$entryCount->count);
+        $countUpdated=intval($entryCount->product->stock-$entryCount->count);
         /* Llamamos al producto a actualizar */
         $product=Product::where('id',$entryCount->product->id)
         ->update(array(
-            'count'=>$countUpdated
+            'stock'=>$countUpdated
         ));
         return redirect()->action('EntryController@getAll')
         ->with('status','Entrada eliminada'); 

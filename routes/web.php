@@ -43,6 +43,8 @@ Route::get('/edit-product/{id}', 'ProductController@edit')->name('edit_product')
 Route::get('/delete-product/{id}', 'ProductController@delete')->name('delete_product');
 Route::post('/update-product', 'ProductController@update')->name('update_product');
 Route::post('/save-product', 'ProductController@save')->name('save_product');
+Route::post('/get-product', 'ProductController@getProduct')->name('get-product');
+
 
 //Entries
 Route::get('/list-entries', 'EntryController@getAll')->name('list_entries');

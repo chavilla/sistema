@@ -138,7 +138,9 @@
                           <thead>
                               <tr>
                                   <th></th>
+                                  <th>Cantidad</th>
                                   <th>Código</th>
+                                  <th>Stock</th>
                                   <th>Nombre</th>
                                   <th>Precio</th>
                                   <th>Impuesto</th>
@@ -147,11 +149,13 @@
                           <tbody>
                               @foreach($products as $product)
                               <tr>
-                                  <td id=""><input type="radio" class="check-prod"></td>
-                                  <td id="id" >{{$product->id}}</td>
-                                  <td id="name">{{$product->name}}</td>
-                                  <td id="price">{{$product->price}}</td>
-                                  <td id="tax">{{$product->tax}}</td>
+                                  <td id=""><input type="checkbox" class="check-prod"></td>
+                                  <td class="count"><input type="number" class="count-modal w-100" min="1"  max="{{$product->stock}}"></td>
+                                  <td class="id-modal" >{{$product->id}}</td>
+                                  <td class="stock-modal" >{{$product->stock}}</td>
+                                  <td class="name-modal">{{$product->name}}</td>
+                                  <td class="price-modal">{{$product->priceTotal}}</td>
+                                  <td class="tax-modal">{{$product->tax}}</td>
                               </tr>
                               @endforeach
                           </tbody>
@@ -162,18 +166,44 @@
             </div>
 
             {{-- Table item --}}
+            {{-- <table class="table mt-4">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Código</th>
+                  <th>Stock</th>
+                  <th>cantidad</th>
+                  <th>Precio</th>
+                  <th>Impuesto</th>
+                  <th>Precio Total</th>
+                </tr>
+                <tr>
+                  <td style="width:200px"><input type="text" id="txt-namProd" placeholder="Buscar producto" class="w-100 txt-namProd"></td>
+                  <td></td>
+                  <td></td>
+                  <td style="width:200px"><input type="number" class="w-100"></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </thead>
+            </table>
+ --}}
+            {{-- Table items --}}
             <table class="table table-items mt-4">
               <thead>
                 <tr>
                   <th>Cantidad</th>
                   <th>Código</th>
+                  <th>Stock</th>
                   <th>Descripción</th>
                   <th>Precio</th>
-                  <th>Impuesto</th>
                   <th>Total</th>
                 </tr>
               </thead>
+              <tbody class="item-data">
+              </tbody>
             </table>
+            <button type="submit" id="btn-send">Enviar</button>
         </div>
     </div>
 </div>

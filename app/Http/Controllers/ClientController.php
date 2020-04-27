@@ -16,6 +16,7 @@ class ClientController extends Controller
         return view('client.list_clients',['clients'=>$clients]);
     }
 
+
     public function create(Request $request){
 
         $validate=$this->validate($request,[

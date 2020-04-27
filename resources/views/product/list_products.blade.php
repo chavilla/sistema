@@ -15,7 +15,7 @@
             <th>Id</th>
             <th>Nombre</th>
             <th>Categoria</th>
-            <th>Cantidad</th>
+            <th>Stock</th>
             <th>Precio</th>
             <th>Impuesto</th>
             <th>Precio Total</th>
@@ -27,7 +27,7 @@
                 <td>{{$product->id}}</td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->categories->name}}</td>
-                <td>{{$product->count}}</td>
+                <td>{{$product->stock}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->tax}}</td>
                 <td>{{$product->priceTotal}}</td>

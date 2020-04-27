@@ -21,6 +21,29 @@ class ProductController extends Controller
         return view('product.create',['categories'=>$categories]);
     }
 
+    public function getProduct(Request $request){
+        $product=Product::where('name',$request->name)
+        ->orwhere('name','like','%'.$request->name.'%')->first();
+        if ($product) {
+            return response()->json([
+                'message'=>'Si existe',
+                'name'=>$product->name,
+                'id'=>$product->id,
+                'price'=>$product->price,
+                'stock'=>$product->stock,
+                'tax'=>$product->tax,
+                'count'=>$product->count
+
+            ]);      # code...
+        }
+        else{
+            return response()->json([
+                'message'=>'No existe'
+            ]); 
+        }
+      
+    }
+
     public function edit($id){
         $categories=Category::all();
         $product=Product::where('id',$id)->first();
@@ -60,7 +83,7 @@ class ProductController extends Controller
             'category_id'=>$category,
             'name'=>$name,
             'price'=>$price,
-            'count'=>0,
+            'stock'=>0,
             'priceTotal'=>$total,
             'tax'=>$tax,
             'inventory'=>$inventory,
@@ -106,7 +129,6 @@ class ProductController extends Controller
             'category_id'=>$category,
             'name'=>$name,
             'price'=>$price,
-            'count'=>0,
             'priceTotal'=>$total,
             'tax'=>$tax,
             'inventory'=>$inventory,
