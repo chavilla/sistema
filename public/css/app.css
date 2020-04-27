@@ -10991,6 +10991,7 @@ a.text-dark:focus {
 
 .modal-products{
   position: absolute !important;
+  max-width: 85%;
   top: 5px !important;
   left: 150%;
 }

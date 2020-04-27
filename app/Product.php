@@ -23,11 +23,6 @@ class Product extends Model
         'user_id',
     ];
 
-    // Relación one to may con tabla categorías
-    /* public function categories(){
-        return $this->hasMany('App\Category');
-    } */
-
     public function categories()
     {
         return $this->belongsTo('App\Category','category_id');

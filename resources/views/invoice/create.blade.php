@@ -7,7 +7,7 @@
     <div id="diverror" style="display:none" class="alert alert-danger col-12 col-md-6 m-auto text-center fixed-bottom" role="alert">
     </div>
     <div class="card border row">
-        <div class="card-header header-card w-100 m-0 row">
+        <div class="card-header  w-100 m-0 row">
             <h1 class="text-center text-md-left col-12 col-md-8">Nueva factura</h1>
         </div>
         <div class="card-body">
@@ -122,7 +122,7 @@
             {{-- Modal show products --}}
             <div class="bd-example-modal-lg hideProducts modal-products" id=''>
               <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
+                  <div class="modal-content w-100">
                     <div class="modal-header">
                       <h4 class="modal-title text-center" id="">Seleccione un producto</h4>
                       <button type="button" class="close-prod" data-dismiss="modal" aria-label="Close">
@@ -196,13 +196,24 @@
                   <th>Código</th>
                   <th>Stock</th>
                   <th>Descripción</th>
-                  <th>Precio</th>
-                  <th>Total</th>
+                  <th class="text-right">Precio</th>
+                  <th class="text-right">Total</th>
                 </tr>
               </thead>
               <tbody class="item-data">
               </tbody>
             </table>
+            <div class="cotizacion d-flex justify-content-end">
+              <div class="div-total pt-5 w-50 mt-3">
+                <div class="subtotal row">
+                  <p style="font-size:1.2rem" class="col-8 text-center">Subtotal: </p><p style="font-size:1.2rem" class="text-right col-4 subtotal-invoice">0</p>
+                </div>
+                <div class="total row">
+                  <p style="font-size:1.2rem" class="col-8 text-center">Total: </p><p style="font-size:1.4rem" class="text-right col-4 total-invoice">0</span></p>
+                </div>
+              </div>
+            </div>
+           
             <button type="submit" id="btn-send">Enviar</button>
         </div>
     </div>

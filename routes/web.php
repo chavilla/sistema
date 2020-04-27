@@ -57,9 +57,10 @@ Route::post('/save-entry', 'EntryController@save')->name('save_entry');
 //Invoices
 Route::get('/list-invoices', 'InvoiceController@getAll')->name('list_invoices');
 Route::get('/create-invoice', 'InvoiceController@create')->name('create_invoice');
+Route::post('/save-invoice', 'InvoiceController@save')->name('save-invoice');
+
 
 //Clients
 Route::get('/list-clients', 'ClientController@getAll')->name('list_clients');
 Route::post('/create-client', 'ClientController@create')->name('create-client');
-
 

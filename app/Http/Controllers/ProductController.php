@@ -57,10 +57,9 @@ class ProductController extends Controller
     
     public function save(Request $request){
 
-
         $validate=$this->validate($request,[
             'category'=>['required','string'],
-            'name' => ['required', 'string', 'max:255', 'unique:products'],
+            'name' => ['required', 'string', 'max:255',Rule::unique('products'),],
             'price' => ['required', 'string'],
             'tax' => ['required', 'string'],
             'inventory' => ['required', 'string', 'max:255'],
@@ -105,7 +104,7 @@ class ProductController extends Controller
         $id=$request->input('id');
         $validate=$this->validate($request,[
             'category'=>['required','string'],
-            'name' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($id),],
+            'name' => ['required', 'string', 'max:255', Rule::unique('products')->ignore($id),],
             'price' => ['required', 'string'],
             'tax' => ['required', 'string'],
             'inventory' => ['required', 'string', 'max:255'],

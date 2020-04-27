@@ -22,4 +22,24 @@ class InvoiceController extends Controller
         $products=Product::all();
         return view('invoice.create', ['clients'=>$clients,'products'=>$products]);
     }
+
+    public function save(Request $request){
+
+        $client=Client::where('nit','=',$request->datos['client'])->first();
+        $invoice=new Invoice();
+        $invoice->user_id=\Auth::user()->id;
+        $invoice->client_id=$client->id;
+        $invoice->total=$request->datos['total'];
+        $invoice->save();
+
+        return response()->json([
+            'message'=>'Factura insertada',
+            'usuario'=>$invoice->user_id,
+            'nit'=>$invoice->client_id,
+            'phone'=>$client->total
+            ]);
+            
+
+        die();
+    }
 }
