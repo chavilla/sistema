@@ -14,15 +14,24 @@
                 <thead>
                     <tr>
                         <th>Factura No.</th>
-                        <th>Fecha</th>
+                        <th>Usuario</th>
                         <th>Cliente</th>
-                        <th>Vendedor</th>
-                        <th>Estado</th>
                         <th>Total</th>
-                        <th>Acciones</th>
+                        <th>Fecha</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    @foreach($invoices as $invoice)
+                    <tr>
+                        <td>{{$invoice->id}}</td>
+                        <td>{{$invoice->user_id}}</td>
+                        <td>{{$invoice->client_id}}</td>
+                        <td>{{$invoice->total}}</td>
+                        <td>{{$invoice->created_at}}</td>
+                    </tr>     
+                    @endforeach
+                   
+                </tbody>
             </table>
         </div>
     </div>

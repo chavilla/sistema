@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Invoice;
 use App\Client;
 use App\Product;
+use App\Detail;
 
 class InvoiceController extends Controller
 {
@@ -14,7 +15,8 @@ class InvoiceController extends Controller
     }
 
     public function getAll(){
-        return view('invoice.list_invoices');
+        $invoices=Invoice::all();
+        return view('invoice.list_invoices',['invoices'=>$invoices]);
     }
 
     public function create(){
@@ -24,7 +26,7 @@ class InvoiceController extends Controller
     }
 
     public function save(Request $request){
-
+    
         $client=Client::where('nit','=',$request->datos['client'])->first();
         $invoice=new Invoice();
         $invoice->user_id=\Auth::user()->id;
@@ -32,14 +34,22 @@ class InvoiceController extends Controller
         $invoice->total=$request->datos['total'];
         $invoice->save();
 
+        $size=sizeof($request->datos['names']);
+        for ($i=0; $i <$size; $i++) { 
+            $detail=new Detail();
+            $detail->invoice_id=$invoice->id;
+            $detail->product_id=$request->datos['codes'][$i];
+            $detail->counts=$request->datos['counts'][$i];
+            $detail->prices=$request->datos['prices'][$i];
+
+            $detail->save();
+        }
+        
         return response()->json([
             'message'=>'Factura insertada',
             'usuario'=>$invoice->user_id,
             'nit'=>$invoice->client_id,
             'phone'=>$client->total
             ]);
-            
-
-        die();
     }
 }

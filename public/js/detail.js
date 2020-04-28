@@ -108,8 +108,8 @@ $(document).ready(function(){
         var client=$('.dataNit').val().trim();
         var totalPay=parseFloat($('.total-invoice').html());
         
-        if (!client ||parseFloat(totalPay)<0 || isNaN(parseFloat(totalPay))) {
-            console.log('no has pulsado');
+        if (!client ||parseFloat(totalPay)<=0 || isNaN(parseFloat(totalPay))) {
+            alert('Debes rellenar todos los campos');
             
         }
         else{
@@ -130,8 +130,7 @@ $(document).ready(function(){
                 counts.push(count);
                 codes.push(code);
                 names.push(name);
-                prices.push(price);
-                
+                prices.push(price);   
             })
 
            var data=new Object();
@@ -143,77 +142,18 @@ $(document).ready(function(){
            data.total=totalPay;
            console.log(data);
 
-
            $.ajax({
             type:'POST',
             url:baseUrl()+"save-invoice",
             data:{ datos:data},
             dataType: 'json',
             success:function(json){
-                
-                
-            }
-        })
-           
-            
-        }
-        
-       /*  if (!client || parseFloat(totalPay)<0 || isNaN(parseFloat(totalPay))) {
-            console.log('no has pulsado');
-            
-        }
-        else{
-            var counts=new Array();
-            var codes=new Array();
-            var names=new Array();
-            var prices=new Array();
-
-            var table=document.querySelectorAll('.item-data tr');
-            for(let i = 0; i < table.length; i++)
-            {
-                var rows=table[i].getElementsByTagName('td');        
-                let count=rows[0].innerHTML;
-                let code=rows[1].innerHTML;
-                let name=rows[3].innerHTML;
-                let price=rows[4].innerHTML;
-                counts.push(count);
-                codes.push(code);
-                names.push(name);
-                prices.push(price);
-            }
-            
-            var data=new Object();
-            data.counts=counts;
-            data.codes=codes;
-            data.names=names;
-            data.prices=prices;
-            data.client=client;
-            data.total=totalPay;
-
-            var datos=new FormData();
-            datos.append('datos',data);
-
-            const xhr=new XMLHttpRequest();
-            xhr.open('POST','/datos',true)
-            xhr.onload=function(){
-                if (this.status===200){
-                    console.log('Hola');
-                    
+                if (json.message){
+                    window.location=baseUrl()+'list-invoices';
                 }
+                
             }
-            
-            xhr.send(datos);
+        })   
         }
-        */
-
-
-        
-        
-        
-        
-        
-        
-        
     })
-
 });
