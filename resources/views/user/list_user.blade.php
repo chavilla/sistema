@@ -10,16 +10,16 @@
 <div class="container mt-5" id="cont-tabla">
     <table class="table table-borderless" id="tabla-contactos">
         <thead class="thead-dark p-2">
-            <th>Nombre</th>
-            <th>Usuario</th>
+            <th class="text-left">Nombre</th>
+            <th class="text-left">Usuario</th>
             <th>Rol</th>
             <th class="text-center">Acción</th>
         </thead>
         <tbody>
             @foreach($users as $user)
             <tr>
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
+                <td class="text-left">{{$user->name}}</td>
+                <td  class="text-left">{{$user->email}}</td>
                 <td class="">{{$user->rol}}</td>
                 <td class="text-center">
                 <a href="{{route('edit_user',['id'=>$user->id])}}" class="mr-3"><i class="fas fa-edit text-info"></i></a>

@@ -17,14 +17,14 @@
 @endif
 <div id="cont-tabla" class="pl-5 pr-5 mt-5 cont-tabla">
 <a href="{{action('EntryController@create')}}" class="btn btn-primary btn-crea mb-5 p-1">Nueva entrada</a>
-    <table class="table table  table-borderless" id="">
+    <table class="table table  table-borderless" id="tabla-entradas">
         <thead class="thead-dark p-2">
-            <th>Id</th>
+            <th>Id Entrada</th>
             <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Costo</th>
-            <th>Usuario</th>
-            <th>Fecha</th>
+            <th class="text-center">Cantidad</th>
+            <th class="text-right">Costo</th>
+            <th class="text-right">Usuario</th>
+            <th class="text-center">Fecha</th>
             <th>Acciones</th>
         </thead>
         <tbody>
@@ -32,10 +32,10 @@
            <tr>
             <td>{{$entry->id}}</td>
             <td>{{$entry->product->name}}</td>
-            <td>{{$entry->count}}</td>
-            <td>{{$entry->cost}}</td>
-            <td>{{$entry->user->name}}</td>
-            <td>{{$entry->created_at}}</td>
+            <td class="text-center">{{$entry->count}}</td>
+            <td class="text-right">${{ number_format($entry->cost,2)}}</td>
+            <td class="text-right">{{$entry->user->name}}</td>
+            <td class="text-center">{{$entry->created_at}}</td>
             <td>
                 <a href="{{action('EntryController@delete', ['id'=>$entry->id])}}" class="btn btn-eliminar"><i class="fas fa-trash-alt text-danger"></i></a>
             </td>     

@@ -21,8 +21,8 @@
                         <th>Factura No.</th>
                         <th>Usuario</th>
                         <th>Cliente</th>
-                        <th>Total</th>
-                        <th>Fecha</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center">Fecha</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,8 +31,8 @@
                         <td>{{$invoice->id}}</td>
                         <td>{{$invoice->user->name}}</td>
                         <td>{{$invoice->client->name}}</td>
-                        <td>{{$invoice->total}}</td>
-                        <td>{{$invoice->fecha}}</td>
+                        <td class="text-right">${{number_format($invoice->total,2)}}</td>
+                        <td class="text-center">{{$invoice->fecha}}</td>
                         <td><a href="{{route('delete_invoice',['id'=>$invoice->id])}}"><i class="fas fa-trash-alt text-danger"></i></a></td>
                     </tr>     
                     @endforeach

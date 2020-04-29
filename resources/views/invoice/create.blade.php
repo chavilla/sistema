@@ -220,6 +220,6 @@
 </div>
 
 @stop
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 <script src="{{ asset('js/client.js') }}" defer></script>
-    <script src="{{ asset('js/detail.js') }}" defer></script>
+<script src="{{ asset('js/detail.js') }}" defer></script>

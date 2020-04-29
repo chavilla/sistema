@@ -26,19 +26,20 @@ class ProductController extends Controller
         ->orwhere('name','like','%'.$request->name.'%')->first();
         if ($product) {
             return response()->json([
-                'message'=>'Si existe',
+                'message'=>'Si',
+                'category'=>$product->categories->name,
                 'name'=>$product->name,
                 'id'=>$product->id,
                 'price'=>$product->price,
                 'stock'=>$product->stock,
-                'tax'=>$product->tax,
-                'count'=>$product->count
-
-            ]);      # code...
+                'total'=>$product->priceTotal,
+                'user'=>$product->user->id,
+                'tax'=>$product->tax
+            ]);
         }
         else{
             return response()->json([
-                'message'=>'No existe'
+                'message'=>'No'
             ]); 
         }
       
@@ -51,7 +52,7 @@ class ProductController extends Controller
     }
 
     public function getAll(){
-        $products=Product::all();
+        $products=Product::paginate(10);
         return view('product.list_products',['products'=>$products]);
     }
     
