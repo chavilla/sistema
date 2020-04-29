@@ -42,14 +42,12 @@ class UserController extends Controller
         $pass=$request->input('password');
         $passwod_hash=Hash::make($pass);
 
-            $user=User::create(array(
-            'name'=>$request->input('name'),
-            'email'=>$request->input('email'),
-            'username'=>$request->input('username'),
-            'password'=>$passwod_hash,
-            'rol'=>$request->input('rol')
-            ));
-
+        $user=new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->username=$request->username;
+        $user->rol=$request->rol;
+        $user->save();
             if($user) {
                 return redirect()->action('UserController@getAll')->with('status','Usuario creado correctamente'); 
             }else{
@@ -73,13 +71,12 @@ class UserController extends Controller
         $username=$request->input('username');
         $rol=$request->input('rol');
 
-        $user=User::where('id',$id)
-        ->update(array(
-            'name'=>$name,
-            'email'=>$email,
-            'username'=>$username,
-            'rol'=>$rol
-        ));
+        $user=User::find($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->username=$request->username;
+        $user->rol=$request->rol;
+        $user->save();
 
         if ($user) {
             return redirect()->action('UserController@getAll')
@@ -91,21 +88,10 @@ class UserController extends Controller
     }
 
     public function delete($id){
-        $user=User::where('id',$id)->delete();
+        $user=User::find($id)->delete();
         return redirect()->action('UserController@getAll')
-        ->with('status','Usuario eliminado');   
-    }
+            ->with('status', 'Usuario eliminado'); 
 
-    public function getApi(){
-
-        $demodata=[
-            'id'=>'1',
-            'name'=>'Jesús',
-        ];
-
-        
-
-        return response()->json($demodata);
     }
 
 }

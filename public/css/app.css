@@ -6982,6 +6982,10 @@ button.bg-secondary:focus {
   background-color: #38c172 !important;
 }
 
+.bg-orange{
+  background-color: #f6993f !important;
+}
+
 a.bg-success:hover,
 a.bg-success:focus,
 button.bg-success:hover,
@@ -10933,7 +10937,7 @@ a.text-dark:focus {
   font-size: 4rem;
 }
 
-.users{
+.sales{
   box-shadow: 6px 10px 11px -9px rgba(52,144,220,1) !important;
 }
 
@@ -10948,6 +10952,10 @@ a.text-dark:focus {
 
 .categories{
   box-shadow:  6px 10px 11px -9px var(--purple) !important;
+}
+
+.users{
+  box-shadow: 6px 10px 11px -9px #f6993f !important;
 }
 
 /*Invoices---*/
@@ -11006,3 +11014,5 @@ a.text-dark:focus {
   transform: translateX(120%);
   transition: all .6s ease;
 }
+
+

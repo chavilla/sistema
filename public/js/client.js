@@ -41,18 +41,18 @@ $(document).ready(function(){
 
     frm.on('submit', function(e){
         e.preventDefault();
-        var nameInput=$('#name').val().trim();
+        var nameInput=$('#name').val();
         var phoneInput=$('#phone').val().trim();
         var emailInput=$('#email').val().trim();
         var nitInput=$('#nit').val().trim();
 
         /* Validate name */
         function onlyLetters(Input) {
-            var regex = /^[a-zA-ZÁÉÍÓÚáéíóú]+$/;
+            var regex = /^[a-zA-ZÁÉÍÓÚáéíóú ]+$/;
             return regex.test(nameInput);
         }
-        var validateName=onlyLetters(nameInput);     
-        
+        var validateName=onlyLetters(nameInput);
+    
         /* Vlidate phone */
         function onlyNumbers(input) {
             var regex = /^[0-9]+$/;
@@ -75,20 +75,15 @@ $(document).ready(function(){
                 url:baseUrl()+"create-client",
                 data:{ name:nameInput,phone:phoneInput,email:emailInput,nit:nitInput},
                 success:function(data){
-                    showMessage(data.message);
-                    clean();
-                    $('.modal-backdrop').removeClass('show');
-                    
-                    /* var tbody=$('tbody');
-                    var row="<tr>"+
-                        '<td>'+'<input type="radio" class="check">'+'</td>'+
-                        '<td>'+data.nit+'</td>'+
-                        '<td>'+data.name+'</td>'+
-                        '<td>'+data.phone+'</td>'+
-                        '</tr>';
 
-                        tbody.append(row); */
-                        window.location=baseUrl()+'create-invoice';
+                    if (data.status==='success') {
+                        clean();
+                        $('.modal-backdrop').removeClass('show');
+                        window.location=baseUrl()+'create-invoice';    
+                    }
+                    else{
+                        alert(data.message);
+                    }
                     
                 }
             })
@@ -96,7 +91,6 @@ $(document).ready(function(){
 
         else{
             showError('Algunos de los datos son incorrectos');
-           clean();
         }
     });
 

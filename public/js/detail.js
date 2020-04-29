@@ -140,7 +140,6 @@ $(document).ready(function(){
            data.prices=prices;
            data.client=client;
            data.total=totalPay;
-           console.log(data);
 
            $.ajax({
             type:'POST',

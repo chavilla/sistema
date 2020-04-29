@@ -2,6 +2,11 @@
 @section('content')
 
 <div class="container">
+    @if (session('status'))
+    <div id="notificacion" class="text-center pt-3 pb-3  alert alert-success   w-25 m-auto mt-3">
+        <strong >{{ session('status') }}</strong>
+    </div>
+    @endif
     <div class="card border row">
         <div class="card-header header-card w-100 m-0 row">
             <h1 class="text-center text-md-left col-12 col-md-8">Facturas</h1>
@@ -24,10 +29,11 @@
                     @foreach($invoices as $invoice)
                     <tr>
                         <td>{{$invoice->id}}</td>
-                        <td>{{$invoice->user_id}}</td>
-                        <td>{{$invoice->client_id}}</td>
+                        <td>{{$invoice->user->name}}</td>
+                        <td>{{$invoice->client->name}}</td>
                         <td>{{$invoice->total}}</td>
-                        <td>{{$invoice->created_at}}</td>
+                        <td>{{$invoice->fecha}}</td>
+                        <td><a href="{{route('delete_invoice',['id'=>$invoice->id])}}"><i class="fas fa-trash-alt text-danger"></i></a></td>
                     </tr>     
                     @endforeach
                    

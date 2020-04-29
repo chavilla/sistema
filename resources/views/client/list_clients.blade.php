@@ -22,8 +22,8 @@
                 <td>{{$client->phone}}</td>
                 <td>{{$client->email}}</td>
                 <td class="text-center">
-                <a href="" class="mr-3"><i class="fas fa-edit text-info"></i></a>
-                <a href=""><i class="fas fa-trash-alt text-danger"></i></a>
+                <a href="{{route('edit_client',['id'=>$client->id])}}" class="mr-3"><i class="fas fa-edit text-info"></i></a>
+                
                 </td>
             </tr>
             @endforeach

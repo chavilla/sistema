@@ -21,12 +21,11 @@
     </div>
     <div class="information text-center pt-5">
         <div class="row mb-3">
-            <div class="col-sm-12 col-md-4">
-                <div class="card users text-white bg-primary mb-3" style="max-width: 18rem;">
-                    <div class="card-header"><h2>Usuarios</h2></div>
+            <div class="col-12 col-md-4">
+                <div class="card  text-white sales bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h2>Ventas de hoy</h2></div>
                     <div class="card-body row">
-                        <p class="col-6"><i class="fas fa-user"></i></p>
-                       <p class="col-6">{{ $users ?? '' }}</p>
+                        <p class="sales-txt">{{ $sales}}</p>
                     </div>
                 </div>
             </div>
@@ -61,7 +60,18 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="card users text-white bg-orange mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h2>Usuarios</h2></div>
+                    <div class="card-body row">
+                        <p class="col-6"><i class="fas fa-user"></i></p>
+                       <p class="col-6">{{ $users ?? '' }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        
     </div>
       
 </div>

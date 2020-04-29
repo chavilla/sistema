@@ -26,11 +26,12 @@ class InvoiceController extends Controller
     }
 
     public function save(Request $request){
-    
+
         $client=Client::where('nit','=',$request->datos['client'])->first();
         $invoice=new Invoice();
         $invoice->user_id=\Auth::user()->id;
         $invoice->client_id=$client->id;
+        $invoice->fecha=date('Y-m-d');
         $invoice->total=$request->datos['total'];
         $invoice->save();
 
@@ -41,8 +42,12 @@ class InvoiceController extends Controller
             $detail->product_id=$request->datos['codes'][$i];
             $detail->counts=$request->datos['counts'][$i];
             $detail->prices=$request->datos['prices'][$i];
-
             $detail->save();
+            /* Disminuir un producto */
+            $product=Product::find($request->datos['codes'][$i]);
+            $stock=floatVal($product->stock-$request->datos['counts'][$i]);
+            $product->stock=$stock;
+            $product->save();
         }
         
         return response()->json([
@@ -51,5 +56,12 @@ class InvoiceController extends Controller
             'nit'=>$invoice->client_id,
             'phone'=>$client->total
             ]);
+    }
+
+    public function delete($id){
+        $invoice=Invoice::find($id)->delete();
+        return redirect()->action('InvoiceController@getAll')
+            ->with('status', 'Factura Eliminada'); 
+
     }
 }
