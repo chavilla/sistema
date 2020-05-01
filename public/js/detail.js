@@ -25,15 +25,23 @@
         checkProd.forEach(check=> {
             
             check.addEventListener('click',()=>{
+                //Obtener los td del tr con clase row
                 let row=check.parentElement.parentElement.childNodes;
                 let priceModal= parseFloat(row[10].innerHTML);
+                let stockModal=row[6].innerHTML;
+                let idModal=row[4].innerHTML;
+                let nameModal=row[8].innerHTML;
+
                 let count=parseFloat(check.parentElement.nextSibling.nextSibling.firstChild.value);
+                
                 if (isNaN(count)) {
                     count=1;
                 }
+                
                 if (count>row[6].innerHTML) {
                     alert('La cantidad seleccionada no está disponible');
                     check.checked=false;
+                    count='';
                 }
                 else{
                     let total=parseFloat(count*priceModal);
@@ -41,9 +49,9 @@
                     fila.innerHTML=
                     ` 
                         <td class='txt-count'>`+count+`</td>
-                        <td class='txt-id'>`+row[4].innerHTML+`</td>
-                        <td class='txt-stock'>`+row[6].innerHTML+`</td>
-                        <td class='txt-name'>`+row[8].innerHTML+`</td>
+                        <td class='txt-id'>`+idModal+`</td>
+                        <td class='txt-stock'>`+stockModal+`</td>
+                        <td class='txt-name'>`+nameModal+`</td>
                         <td class='txt-price text-right'>`+priceModal.toFixed(2)+`</td>
                         <td class='txt-total text-right'>`+total.toFixed(2)+`</td>
                     `;
@@ -52,8 +60,11 @@
                     modalProd.classList.remove('showProducts');
                     modalProd.classList.add('hideProducts');
                     check.checked=false;
+                   
+                    stockModal=check.parentElement.parentElement.getElementsByTagName('td')[3];
+                    let newStock=parseInt(stockModal.innerHTML-count);
+                    stockModal.innerHTML=newStock;
                     
-
                     /* Events for row */
                     var subtotal_invoice=document.querySelector('.subtotal-invoice');
                     var total_invoice=document.querySelector('.total-invoice');
@@ -62,23 +73,12 @@
                     sumatoriaTotal.forEach(suma => {
                         let valor=parseFloat(suma.innerHTML);
                         totalSuma+=valor;
-                    })
+                    });
                     subtotal_invoice.innerHTML=totalSuma.toFixed(2);
                     total_invoice.innerHTML=totalSuma.toFixed(2);
                 }
             });
         });    
-
-
-        /* Buscar producto */
-       /*  const buscador=document.querySelector('#txt-namProd');
-        buscador.addEventListener('keyup', searchProduct);
-
-
-        function searchProduct(e){
-            e.preventDefault();
-        }
- */
 
     })
 })();

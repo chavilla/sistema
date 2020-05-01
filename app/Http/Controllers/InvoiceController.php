@@ -21,7 +21,7 @@ class InvoiceController extends Controller
 
     public function create(){
         $clients=Client::all();
-        $products=Product::all();
+        $products=Product::orderBy('name')->get();
         return view('invoice.create', ['clients'=>$clients,'products'=>$products]);
     }
 

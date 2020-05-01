@@ -39,13 +39,14 @@ class UserController extends Controller
             'password' => ['required', 'string', 'min:8'],
         ]);
 
-        $pass=$request->input('password');
+        $pass=$request->password;
         $passwod_hash=Hash::make($pass);
 
         $user=new User();
         $user->name=$request->name;
         $user->email=$request->email;
         $user->username=$request->username;
+        $user->password=$passwod_hash;
         $user->rol=$request->rol;
         $user->save();
             if($user) {
@@ -92,6 +93,34 @@ class UserController extends Controller
         return redirect()->action('UserController@getAll')
             ->with('status', 'Usuario eliminado'); 
 
+    }
+
+    public function password(){
+
+        return view('user.password');
+    }
+
+    public function updatePassword(Request $request){
+        $validate=$this->validate($request,[
+            'password_new' =>['required', 'string', 'min:8'],
+        ]);
+
+        if (!password_verify($request->password_old,\Auth::user()->password)){
+            return redirect()->action('UserController@password')->with('status','Tu contraseña actual no coincide');
+        }
+        else{
+            $id=\Auth::user()->id;
+            $user=User::find($id);
+            $user->password=Hash::make($request->password_new);
+            $user->save();
+            if ($user){
+                return redirect()->action('UserController@password')->with('updated','Contraseña actualizada');
+            }
+            else{
+                return redirect()->action('UserController@password')->with('updated','No se ha podido actualizar');
+            }
+        }
+        
     }
 
 }

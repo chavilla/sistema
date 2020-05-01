@@ -53,7 +53,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                        <a class="dropdown-item py-2" href="{{ route('create_user') }}">{{ __('Cambiar contraseña') }}</a>
+                                        <a class="dropdown-item py-2" href="{{ route('password') }}">{{ __('Cambiar contraseña') }}</a>
                                         <a class="dropdown-item py-2" href="{{ route('create_user') }}">{{ __('Registrar Usuario') }}</a>
                                 </div>
                             </li>

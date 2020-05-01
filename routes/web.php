@@ -27,6 +27,8 @@ Route::get('/delete/{id}', 'UserController@delete')->name('delete_user');
 Route::post('/update', 'UserController@update')->name('update_user');
 Route::post('/save', 'UserController@save')->name('save_user');
 Route::get('/api_user', 'UserController@getApi')->name('api_user');
+Route::get('/password','UserController@password')->name('password');
+Route::post('/update-password','UserController@updatePassword')->name('update_password');
 
 //Categories products
 Route::get('/list-categories', 'CategoryController@getAll')->name('list_categories');

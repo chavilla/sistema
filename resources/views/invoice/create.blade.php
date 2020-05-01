@@ -122,7 +122,7 @@
             {{-- Modal show products --}}
             <div class="bd-example-modal-lg hideProducts modal-products" id=''>
               <div class="modal-dialog modal-lg">
-                  <div class="modal-content w-100">
+                  <div class="modal-content w-100" style="z-index:1000">
                     <div class="modal-header">
                       <h4 class="modal-title text-center" id="">Seleccione un producto</h4>
                       <button type="button" class="close-prod" data-dismiss="modal" aria-label="Close">
@@ -149,8 +149,8 @@
                           <tbody>
                               @foreach($products as $product)
                               <tr>
-                                  <td id=""><input type="checkbox" class="check-prod"></td>
-                                  <td class="count"><input type="number" class="count-modal w-100" min="1"  max="{{$product->stock}}"></td>
+                                  <td><input type="checkbox" class="check-prod"></td>
+                                  <td class="count"><input type="number" class="count-modal form-control w-100" min="1"  max="{{$product->stock}}"></td>
                                   <td class="id-modal" >{{$product->id}}</td>
                                   <td class="stock-modal" >{{$product->stock}}</td>
                                   <td class="name-modal">{{$product->name}}</td>
@@ -213,8 +213,10 @@
                 </div>
               </div>
             </div>
+            <div class="btn-fact d-flex justify-content-end mt-2">
+              <button type="submit" class="btn btn-primary col-md-3" id="btn-send">Facturar</button>
+            </div>
            
-            <button type="submit" id="btn-send">Enviar</button>
         </div>
     </div>
 </div>
