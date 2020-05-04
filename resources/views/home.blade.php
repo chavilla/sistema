@@ -73,6 +73,10 @@
         </div>
         
     </div>
+    <div class="mt-5">
+        <h1 class="text-center display-4">Productos no disponibles</h1>
+    </div>
+    
       
 </div>
 @endsection

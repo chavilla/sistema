@@ -14,7 +14,7 @@ class EntryController extends Controller
     }
 
     public function getAll(){
-        $entries=Entry::all();
+        $entries=Entry::orderBy('created_at','desc')->get();
         return view('entry.list_entries',['entries'=>$entries]);
     }
 

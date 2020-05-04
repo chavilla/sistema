@@ -15,7 +15,7 @@ class InvoiceController extends Controller
     }
 
     public function getAll(){
-        $invoices=Invoice::all();
+        $invoices=Invoice::orderBy('created_at','desc')->get();
         return view('invoice.list_invoices',['invoices'=>$invoices]);
     }
 
