@@ -33,12 +33,21 @@ class HomeController extends Controller
         $countProducts=Product::all()->count();
         $countCategories=Category::all()->count();
         $sales=Invoice::where('fecha',$day)->get()->sum('total');
+
+        /* Show the products with 0 stock */
+        $unavailables=Product::where('stock','=',0)->get();
+
         return view('home', array(
             'users'=>$countUsers,
             'products'=>$countProducts,
             'categories'=>$countCategories,
             'clients'=>$countClients,
-            'sales'=>$sales
+            'sales'=>$sales,
+            'unavailables'=>$unavailables
         ));
+
+        
+        
+
     }
 }

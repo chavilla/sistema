@@ -19,8 +19,34 @@
             </div>
         </div>
     </div>
-    <div class="information text-center pt-5">
-        <div class="row mb-3">
+    <section class="content mt-5 mb-3 pt-2">
+        <h2 class="text-center display-4">Productos no disponibles</h2>
+        <div class="container mt-3 pt-3">
+            <table class="table" id="tabla-productos">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col" class="text-center">Stock</th>
+                    <th scope="col" class="text-right">Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                @foreach($unavailables as $unavailable)
+                  <tr>
+                    <td>{{str_pad($unavailable->id,7,'0',STR_PAD_LEFT)}}</td>
+                    <td>{{$unavailable->name}}</td>
+                    <td  class="text-center">{{$unavailable->stock}}</td>
+                    <td class="text-right">${{number_format($unavailable->price,2)}}</td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+        </div>
+    </section>
+    <section class="information content text-center mt-5 pt-5">
+        <h2 class="text-center display-4">Estadísticas</h2>
+        <div class="row mb-3 mt-5 pt-3">
             <div class="col-12 col-md-4">
                 <div class="card  text-white sales bg-primary mb-3" style="max-width: 18rem;">
                     <div class="card-header"><h2>Ventas de hoy hasta ahora</h2></div>
@@ -72,10 +98,9 @@
             </div>
         </div>
         
-    </div>
-    <div class="mt-5">
-        <h1 class="text-center display-4">Productos no disponibles</h1>
-    </div>
+    </section>
+   
+    
     
       
 </div>

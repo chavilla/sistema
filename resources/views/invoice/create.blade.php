@@ -25,9 +25,6 @@
                     <input type="text" class="form-control" placeholder="Vendedor" disabled value="{{Auth::user()->name}}">
                 </div>
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
-                    <input type="date" class="form-control" placeholder="Fecha">
-                </div>
-                <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
                     <input type="text" class="form-control" placeholder="Pago">
                 </div>
             </div>
@@ -132,7 +129,7 @@
                     <div class="modal-body">
                       <div class="row col-12">
                           <i class="fas fa-search col-1 pt-2"></i>
-                          <input type="search" class="form-control col-10">
+                          <input type="search" id="search-prod" class="form-control col-10">
                       </div>
                         <table class="table mt-5">
                           <thead>
@@ -146,9 +143,9 @@
                                   <th>Impuesto</th>
                               </tr>
                           </thead>
-                          <tbody>
+                          <tbody class="tbody-prod">
                               @foreach($products as $product)
-                              <tr>
+                              <tr class="fila">
                                   <td><input type="checkbox" class="check-prod"></td>
                                   <td class="count"><input type="number" class="count-modal form-control w-100" min="1"  max="{{$product->stock}}"></td>
                                   <td class="id-modal" >{{$product->id}}</td>

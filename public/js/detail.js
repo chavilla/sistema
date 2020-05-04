@@ -8,6 +8,7 @@
         const btn_new_prod=document.querySelector('#newProduct');
         const checkProd=document.querySelectorAll('.check-prod');
         const modalProd=document.querySelector('.modal-products');
+        const buscador=document.querySelector('#search-prod');
         
         btn_new_prod.addEventListener('click',(e)=>{
             e.preventDefault();
@@ -22,8 +23,7 @@
         })
         
         //add value on the table detail
-        checkProd.forEach(check=> {
-            
+        checkProd.forEach(check=> {       
             check.addEventListener('click',()=>{
                 //Obtener los td del tr con clase row
                 let row=check.parentElement.parentElement.childNodes;
@@ -31,7 +31,6 @@
                 let stockModal=row[6].innerHTML;
                 let idModal=row[4].innerHTML;
                 let nameModal=row[8].innerHTML;
-
                 let count=parseFloat(check.parentElement.nextSibling.nextSibling.firstChild.value);
                 
                 if (isNaN(count)) {
@@ -80,6 +79,19 @@
             });
         });    
 
+        //Buscador
+        buscador.addEventListener('input', buscarContactos);
+        function buscarContactos(e){
+            const expresion=new RegExp(e.target.value,"i");
+            const registros=document.querySelectorAll('.tbody-prod tr');
+            /* Recorremos registros */
+            registros.forEach(registro=>{
+                 registro.style.display='none';
+                 if(registro.childNodes[8].textContent.replace(/\s/g, " ").search(expresion) !=-1){
+                      registro.style.display='table-row';               
+                 }
+            })
+        }
     })
 })();
 
@@ -103,14 +115,11 @@ $(document).ready(function(){
     /* Send to invoice */
     var btnSend=$('#btn-send');
     btnSend.on('click',(e)=>{
-
         e.preventDefault();
         var client=$('.dataNit').val().trim();
         var totalPay=parseFloat($('.total-invoice').html());
-        
         if (!client ||parseFloat(totalPay)<=0 || isNaN(parseFloat(totalPay))) {
             alert('Debes rellenar todos los campos');
-            
         }
         else{
             var counts=[];
@@ -149,8 +158,7 @@ $(document).ready(function(){
             success:function(json){
                 if (json.message){
                     window.location=baseUrl()+'list-invoices';
-                }
-                
+                }            
             }
         })   
         }
