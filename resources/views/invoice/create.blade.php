@@ -25,13 +25,16 @@
                     <input type="text" class="form-control" placeholder="Vendedor" disabled value="{{Auth::user()->name}}">
                 </div>
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
-                    <input type="text" class="form-control" placeholder="Pago">
+                  <select name="pay">
+                    <option value="">Seleccionar</option>
+                    <option value="efe">Efectivo</option>
+                    <option value="card">Tarjeta</option>
+                </select>
                 </div>
             </div>
             <div class="d-flex justify-content-md-end mt-3">
                 <button id="newClient" class="btn" data-toggle="modal" data-target="#client">Nuevo cliente</button>
                 <button id="newProduct" class="btn">Agregar producto</button>
-                <button id="print" class="btn">Imprimir</button>
             </div>
 
             {{-- Modal Client --}}
@@ -117,8 +120,8 @@
             </div>
 
             {{-- Modal show products --}}
-            <div class="bd-example-modal-lg hideProducts modal-products" id=''>
-              <div class="modal-dialog modal-lg">
+            <div class="bd-example-modal-lg d-block hideProducts modal-products" id=''>
+              <div class="modal-dialog  modal-lg">
                   <div class="modal-content w-100" style="z-index:1000">
                     <div class="modal-header">
                       <h4 class="modal-title text-center" id="">Seleccione un producto</h4>
@@ -131,16 +134,16 @@
                           <i class="fas fa-search col-1 pt-2"></i>
                           <input type="search" id="search-prod" class="form-control col-10">
                       </div>
-                        <table class="table mt-5">
+                        <table class="table w-100 mt-5">
                           <thead>
                               <tr>
                                   <th></th>
                                   <th>Cantidad</th>
-                                  <th>Código</th>
-                                  <th>Stock</th>
-                                  <th>Nombre</th>
-                                  <th>Precio</th>
-                                  <th>Impuesto</th>
+                                  <th class="text-center">Código</th>
+                                  <th class="text-center">Stock</th>
+                                  <th class="text-center">Nombre</th>
+                                  <th class="text-right">Precio</th>
+                                  <th class="text-right">Impuesto</th>
                               </tr>
                           </thead>
                           <tbody class="tbody-prod">
@@ -148,11 +151,11 @@
                               <tr class="fila">
                                   <td><input type="checkbox" class="check-prod"></td>
                                   <td class="count"><input type="number" class="count-modal form-control w-100" min="1"  max="{{$product->stock}}"></td>
-                                  <td class="id-modal" >{{$product->id}}</td>
-                                  <td class="stock-modal" >{{$product->stock}}</td>
-                                  <td class="name-modal">{{$product->name}}</td>
-                                  <td class="price-modal">{{$product->priceTotal}}</td>
-                                  <td class="tax-modal">{{$product->tax}}</td>
+                                  <td class="id-modal" >{{str_pad($product->id,7,'0',STR_PAD_LEFT)}}</td>
+                                  <td class="stock-modal text-right" >{{$product->stock}}</td>
+                                  <td class="name-modal pl-5">{{$product->name}}</td>
+                                  <td class="price-modal  text-right">{{$product->priceTotal}}</td>
+                                  <td class="tax-modal text-right">{{$product->tax}}</td>
                               </tr>
                               @endforeach
                           </tbody>
@@ -190,9 +193,9 @@
               <thead>
                 <tr>
                   <th>Cantidad</th>
-                  <th>Código</th>
-                  <th>Stock</th>
-                  <th>Descripción</th>
+                  <th class="text-center">Código</th>
+                  
+                  <th class="text-center">Descripción</th>
                   <th class="text-right">Precio</th>
                   <th class="text-right">Total</th>
                 </tr>
@@ -211,7 +214,8 @@
               </div>
             </div>
             <div class="btn-fact d-flex justify-content-end mt-2">
-              <button type="submit" class="btn btn-primary col-md-3" id="btn-send">Facturar</button>
+              <button type="submit" class="btn btn-danger col-md-2" id="btn-cancel">Cancelar</button>
+              <button type="submit" class="btn btn-primary col-md-2 ml-3" id="btn-send">Facturar</button>
             </div>
            
         </div>

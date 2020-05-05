@@ -48,18 +48,18 @@
                     fila.innerHTML=
                     ` 
                         <td class='txt-count'>`+count+`</td>
-                        <td class='txt-id'>`+idModal+`</td>
-                        <td class='txt-stock'>`+stockModal+`</td>
-                        <td class='txt-name'>`+nameModal+`</td>
+                        <td class='txt-id text-center'>`+idModal+`</td>
+                        <td class='txt-name text-center'>`+nameModal+`</td>
                         <td class='txt-price text-right'>`+priceModal.toFixed(2)+`</td>
                         <td class='txt-total text-right'>`+total.toFixed(2)+`</td>
                     `;
+
                     
                     table_items.appendChild(fila); 
                     modalProd.classList.remove('showProducts');
                     modalProd.classList.add('hideProducts');
                     check.checked=false;
-                   
+                    //Actualizar el stock
                     stockModal=check.parentElement.parentElement.getElementsByTagName('td')[3];
                     let newStock=parseInt(stockModal.innerHTML-count);
                     stockModal.innerHTML=newStock;
@@ -77,8 +77,9 @@
                     total_invoice.innerHTML=totalSuma.toFixed(2);
                 }
             });
-        });    
+        });  
 
+    
         //Buscador
         buscador.addEventListener('input', buscarContactos);
         function buscarContactos(e){
@@ -114,6 +115,7 @@ $(document).ready(function(){
 
     /* Send to invoice */
     var btnSend=$('#btn-send');
+    var btnCancel=$('#btn-cancel');
     btnSend.on('click',(e)=>{
         e.preventDefault();
         var client=$('.dataNit').val().trim();
@@ -163,4 +165,12 @@ $(document).ready(function(){
         })   
         }
     })
+
+    btnCancel.click(()=>{
+        var cancel=confirm('¿Desea cancelar la factura?');
+        if (cancel){
+            window.location=baseUrl()+'list-invoices';
+        }
+    })
+
 });
