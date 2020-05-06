@@ -29,7 +29,7 @@
                 <tbody>
                     @foreach($invoices as $invoice)
                     <tr>
-                        <td>{{$invoice->id}}</td>
+                        <td>{{str_pad($invoice->id,7,'0',STR_PAD_LEFT)}}</td>
                         <td>{{$invoice->user->name}}</td>
                         <td>{{$invoice->client->name}}</td>
                         <td>{{$invoice->pay}}</td>

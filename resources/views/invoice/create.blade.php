@@ -25,10 +25,10 @@
                     <input type="text" class="form-control" placeholder="Vendedor" disabled value="{{Auth::user()->name}}">
                 </div>
                 <div class="field col-12 col-md-6 col-lg-4 px-3 py-1">
-                  <select name="pay">
+                  <select name="pay" class="form-control pay-mode">
                     <option value="">Seleccionar</option>
-                    <option value="efe">Efectivo</option>
-                    <option value="card">Tarjeta</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="tarjetan">Tarjeta</option>
                 </select>
                 </div>
             </div>

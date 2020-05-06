@@ -32,6 +32,7 @@ class InvoiceController extends Controller
         $invoice->user_id=\Auth::user()->id;
         $invoice->client_id=$client->id;
         $invoice->fecha=date('Y-m-d');
+        $invoice->pay=$request->datos['pay'];
         $invoice->total=$request->datos['total'];
         $invoice->save();
 
