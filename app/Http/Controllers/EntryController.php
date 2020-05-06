@@ -14,7 +14,7 @@ class EntryController extends Controller
     }
 
     public function getAll(){
-        $entries=Entry::orderBy('id','desc')->get();
+        $entries=Entry::orderBy('id','desc')->paginate(10);
         return view('entry.list_entries',['entries'=>$entries]);
     }
 

@@ -43,5 +43,6 @@
            @endforeach
         </tbody>
     </table>
+    <div class="page">{{ $entries->links() }}</div>
 </div>
 @stop

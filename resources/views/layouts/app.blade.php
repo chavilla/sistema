@@ -54,7 +54,10 @@
                                         @csrf
                                     </form>
                                         <a class="dropdown-item py-2" href="{{ route('password') }}">{{ __('Cambiar contraseña') }}</a>
-                                        <a class="dropdown-item py-2" href="{{ route('create_user') }}">{{ __('Registrar Usuario') }}</a>
+                                        @if(\Auth::user()->rol=='admin')
+                                        <a class="dropdown-item py-2" href="{{ route('create_user') }}">{{ __('Registrar Usuario') }}</a>     
+                                        @endif
+                                       
                                 </div>
                             </li>
                            
