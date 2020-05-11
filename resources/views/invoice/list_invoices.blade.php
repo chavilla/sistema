@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-responsive-md">
+            <table id="tabla-facturas" class="table table-responsive-md">
                 <thead>
                     <tr>
                         <th>Factura No.</th>
@@ -29,13 +29,13 @@
                 <tbody>
                     @foreach($invoices as $invoice)
                     <tr>
-                        <td>{{str_pad($invoice->id,7,'0',STR_PAD_LEFT)}}</td>
+                        <td>{{str_pad($invoice->id,5,'0',STR_PAD_LEFT)}}</td>
                         <td>{{$invoice->user->name}}</td>
                         <td>{{$invoice->client->name}}</td>
                         <td>{{$invoice->pay}}</td>
                         <td class="text-right">${{number_format($invoice->total,2)}}</td>
                         <td class="text-center">{{$invoice->fecha}}</td>
-                        {{-- <td><a href="{{route('delete_invoice',['id'=>$invoice->id])}}"><i class="fas fa-trash-alt text-danger"></i></a></td> --}}
+                        <td><a class="btn btn-primary text-white" href="{{route('pdf-factura',['id'=>$invoice->id])}}" target="_blank">Ver pdf</a></td>
                     </tr>     
                     @endforeach
                    

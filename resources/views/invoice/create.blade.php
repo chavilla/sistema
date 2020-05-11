@@ -28,7 +28,7 @@
                   <select name="pay" class="form-control pay-mode">
                     <option value="">Seleccionar</option>
                     <option value="efectivo">Efectivo</option>
-                    <option value="tarjetan">Tarjeta</option>
+                    <option value="tarjeta">Tarjeta</option>
                 </select>
                 </div>
             </div>

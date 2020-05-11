@@ -141,8 +141,8 @@ $(document).ready(function() {
             .val()
             .trim();
         var payMode=$('.pay-mode').val();
-        if (!payMode) {
-            alert("Debes sleecionar una forma de pago");
+        if (payMode!='efectivo' && payMode!='tarjeta') {
+            alert("Debes seleccionar una forma de pago");
             return;
         }
         var totalPay = parseFloat($(".total-invoice").html());

@@ -68,3 +68,5 @@ Route::post('/create-client', 'ClientController@create')->name('create_client');
 Route::get('/edit-client/{id}', 'ClientController@edit')->name('edit_client');
 Route::post('/update-client', 'ClientController@update')->name('update_client');
 Route::get('/delete-client/{id}', 'ClientController@delete')->name('delete_client');
+
+Route::get('pdf/{id}','PdfController@PDF')->name('pdf-factura');

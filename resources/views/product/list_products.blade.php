@@ -29,7 +29,7 @@
         <tbody>
             @foreach($products as $product)
             <tr class="fila">
-                <td>{{str_pad($product->id,7,'0',STR_PAD_LEFT)}}</td>
+                <td>{{str_pad($product->id,5,'0',STR_PAD_LEFT)}}</td>
                 <td>{{$product->name}}</td>
                 <td class="text-left">{{$product->categories->name}}</td>
                 <td class="text-right">{{$product->stock}}</td>

@@ -11015,6 +11015,6 @@ a.text-dark:focus {
   transition: all .6s ease;
 }
 
-#tabla-productos td, #tabla-entradas td{
+#tabla-productos td, #tabla-entradas td, #tabla-facturas td{
   font-size: 1rem !important;
 }
