@@ -70,3 +70,6 @@ Route::post('/update-client', 'ClientController@update')->name('update_client');
 Route::get('/delete-client/{id}', 'ClientController@delete')->name('delete_client');
 
 Route::get('pdf/{id}','PdfController@PDF')->name('pdf-factura');
+
+//Controller resources
+Route::resource('persona', 'PersonaController');
