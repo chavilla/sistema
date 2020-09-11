@@ -11018,3 +11018,11 @@ a.text-dark:focus {
 #tabla-productos td, #tabla-entradas td, #tabla-facturas td{
   font-size: 1rem !important;
 }
+
+footer{
+  height: 5rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+}

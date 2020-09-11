@@ -61,6 +61,7 @@ class ProductController extends Controller
         $validate=$this->validate($request,[
             'category'=>['required','string'],
             'name' => ['required', 'string', 'max:255',Rule::unique('products'),],
+            'stock' => ['required', 'string' ],
             'price' => ['required', 'string'],
             'tax' => ['required', 'string'],
             'inventory' => ['required', 'string', 'max:255'],
@@ -70,6 +71,7 @@ class ProductController extends Controller
         $name=$request->input('name');
         $category=intval($request->input('category'));
         $price=floatval($request->input('price'));
+        $stock=intval($request->input('stock'));
         $count=intval($request->input('count'));
         $tax=intval($request->input('tax'));
         $inventory=$request->input('inventory');
@@ -83,7 +85,7 @@ class ProductController extends Controller
             'category_id'=>$category,
             'name'=>$name,
             'price'=>$price,
-            'stock'=>0,
+            'stock'=>$stock,
             'priceTotal'=>$total,
             'tax'=>$tax,
             'inventory'=>$inventory,

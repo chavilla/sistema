@@ -96,7 +96,9 @@
         </main>
     </div>
     @section('footer') 
-   
+    <footer class="bg-dark mt-5">
+        <p class="text-white text-center">Todos los derechos reservados &copy; Chaviweb <?php echo date('Y'); ?> </p>
+    </footer>    
     @show
 </body>
 </html>

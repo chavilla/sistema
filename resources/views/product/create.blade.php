@@ -64,6 +64,12 @@
             <label for="reference">Referencia</label>
             <input type="text"  name="reference" id="reference"  class="form-control  @error('reference') is-invalid @enderror" value="{{ $product->reference ?? '' }}">
         </div>
+
+        <div class="form-group col-md-6">
+            <label for="reference">Stock</label>
+            <input type="number"  name="stock" id="stock"  class="form-control  @error('stock') is-invalid @enderror" value="{{ $product->stock ?? 0 }}">
+        </div>
+
         <div class="form-group col-md-12">
             <label for="description">Descripción <small>(opcional)</small></label>
             <textarea name="description" id="description" cols="20" rows="5" class="form-control" value="{{ $product->description ?? '' }}"></textarea>
