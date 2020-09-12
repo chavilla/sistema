@@ -37,6 +37,7 @@ class CategoryController extends Controller
         $category=Category::create(array(
             'name'=>$name
         ));
+        
         if ($category) {
                 return redirect()->action('CategoryController@getAll')->with('status','Categoría guardada');
         }

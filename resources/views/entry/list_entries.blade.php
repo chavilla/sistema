@@ -3,13 +3,6 @@
 @section('content')
 <h1 class="text-center mt-5 font-weight display-4">Lista de entradas</h1>
 
-{{--  @if(($entry ?? '') && is_object($entry ?? ''))
-    <h1 class="text-center">Actualizar entrada</h1>
-@else
-    <h1 class="text-center">Ingresar entrada</h1>  
-@endif  --}}
-
-
 @if (session('status'))
 <div id="notificacion" class="text-center pt-3 pb-3  alert alert-success   w-25 m-auto mt-3">
     <strong >{{ session('status') }}</strong>
@@ -34,7 +27,7 @@
             <td>{{$entry->product->name}}</td>
             <td class="text-center">{{$entry->count}}</td>
             <td class="text-right">${{ number_format($entry->cost,2)}}</td>
-            <td class="text-right">{{$entry->user->name}}</td>
+            <td class="text-right">{{$entry->user->name ?? ''}}</td>
             <td class="text-center">{{$entry->created_at}}</td>
             <td>
                 <a href="{{action('EntryController@delete', ['id'=>$entry->id])}}" class="btn btn-eliminar"><i class="fas fa-trash-alt text-danger"></i></a>

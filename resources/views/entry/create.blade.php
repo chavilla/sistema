@@ -20,10 +20,20 @@
         <div class="form-group col-md-6">
             <label for="count">cantidad</label>
             <input type="number" min="1" id="count" name="count" class="form-control" value="{{ $entry->cantidad ?? '' }}">
+            @error('count')
+            <span class="invalid-feedback d-block w-100" role="alert">
+                <strong class="">Esta cantidad es incorrecta. Asegurate colocar un valor numérico</strong>
+            </span>
+            @enderror
         </div>
         <div class="form-group col-md-6">
             <label for="cost">Costo</label>
             <input type="number"  step="any" min=0 id="cost" name="cost" class="form-control"  value="{{ $entry->costo ?? '' }}">
+            @error('cost')
+            <span class="invalid-feedback d-block w-100" role="alert">
+                <strong class="">Esta costo es incorrecto. Asegurate colocar un valor numérico</strong>
+            </span>
+            @enderror
         </div>
         <div class="form-group w-50 col-md-6">
             <label for="products">Productos</label>
@@ -41,9 +51,14 @@
                     @endif
                 @endforeach
             </select>
+            @error('product')
+            <span class="invalid-feedback d-block w-100" role="alert">
+                <strong class="">Debes seleccionar un producto</strong>
+            </span>
+            @enderror
         </div>
-        <div class="form-group d-flex justify-content-center mt-3 col-md-12">
-            <input type="submit" class="btn btn-success btn-creaProducto  font-weight-bold" value="Enviar">
+        <div class="form-group d-flex justify-content-center mt-3 col-md-12 row  mx-auto ">
+            <input type="submit" class="btn btn-success btn-creaProducto font-weight-bold col-12 col-md-4 col-lg-3" value="Enviar">
             @if(($entry ?? '') && is_object($entry ?? ''))
                 <input type="hidden" name="id"  value="{{$entry->identrada ?? ''}}">
             @endif

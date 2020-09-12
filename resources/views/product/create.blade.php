@@ -74,11 +74,11 @@
             <label for="description">Descripción <small>(opcional)</small></label>
             <textarea name="description" id="description" cols="20" rows="5" class="form-control" value="{{ $product->description ?? '' }}"></textarea>
         </div>
-        <div class="form-group d-flex justify-content-center mt-3 col-md-12">
+        <div class="form-group d-flex justify-content-center mt-3 row mx-auto  col-md-12">
             @if(isset($product))
                 <input type="hidden" name="id" value="{{$product->id ?? ''}}">
             @endif
-            <input type="submit" class="btn btn-success btn-creaProducto  font-weight-bold" value="Enviar">
+            <input type="submit" class="btn btn-success btn-creaProducto col-12 col-md-4 col-lg-3  font-weight-bold" value="Enviar">
         </div>
     </form>
 </div>

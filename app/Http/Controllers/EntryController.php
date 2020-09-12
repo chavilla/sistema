@@ -35,7 +35,7 @@ class EntryController extends Controller
 
         $validate=$this->validate($request,[
             'count' => ['required', 'Integer'],
-            'cost' => 'nullable|regex:/^\d*(\.\d{2})?$/',
+            'cost' => [ 'required', 'regex:/^\d*(\.\d{2})?$/'],
             'product' => ['required', 'Integer'],
         ]);
 
