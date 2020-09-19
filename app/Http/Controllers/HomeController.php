@@ -27,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // get total of all categories
         $day=date("Y-m-d");
         $countUsers=User::all()->count();
         $countClients=Client::all()->count();
@@ -37,17 +38,20 @@ class HomeController extends Controller
         /* Show the products with 0 stock */
         $unavailables=Product::where('stock','=',0)->get();
 
+        /*--get sales of the current month----*/
+        $carbon = new \Carbon\Carbon();
+        $startMonth=$carbon->now()->startOfMonth()->format('Y-m-d');
+        $endMonth=$carbon->now()->lastOfMonth()->format('Y-m-d');
+        $salesThisMonth=Invoice::whereBetween('fecha', [$startMonth, $endMonth])->sum('total');
+
         return view('home', array(
             'users'=>$countUsers,
             'products'=>$countProducts,
             'categories'=>$countCategories,
             'clients'=>$countClients,
             'sales'=>$sales,
-            'unavailables'=>$unavailables
+            'unavailables'=>$unavailables,
+            'salesThisMonth'=>$salesThisMonth
         ));
-
-        
-        
-
     }
 }

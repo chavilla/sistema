@@ -23,22 +23,21 @@
 
         //add value on the table detail
         checkProd.forEach(check => {
+            
             check.addEventListener("click", () => {
                 //Obtener los td del tr con clase row
-                let row = check.parentElement.parentElement.childNodes;
-                let priceModal = parseFloat(row[10].innerHTML);
-                let stockModal = row[6].innerHTML;
-                let idModal = row[4].innerHTML;
-                let nameModal = row[8].innerHTML;
-                let count = parseFloat(
-                    check.parentElement.nextSibling.nextSibling.firstChild.value
-                );
+                let row = check.parentElement.parentElement.children;
+                let count = parseInt(row[1].textContent);
+                let idModal = row[2].textContent;
+                let stockModal = row[3].textContent;
+                let nameModal = row[4].textContent;
+                let priceModal =parseFloat(row[5].textContent);
 
                 if (isNaN(count)) {
                     count = 1;
                 }
 
-                if (count > row[6].innerHTML) {
+                if (count > row[3].innerHTML) {
                     alert("La cantidad seleccionada no está disponible");
                     check.checked = false;
                     count = "";
@@ -57,10 +56,10 @@
                         nameModal +
                         `</td>
                         <td class='txt-price text-right'>` +
-                        priceModal.toFixed(2) +
+                        parseFloat(priceModal.toFixed(2)) +
                         `</td>
                         <td class='txt-total text-right'>` +
-                        total.toFixed(2) +
+                        parseFloat(total.toFixed(2)) +
                         `</td>
                     `;
 
@@ -140,8 +139,8 @@ $(document).ready(function() {
         var client = $(".dataNit")
             .val()
             .trim();
-        var payMode=$('.pay-mode').val();
-        if (payMode!='efectivo' && payMode!='tarjeta') {
+        var payMode = $(".pay-mode").val();
+        if (payMode != "efectivo" && payMode != "tarjeta") {
             alert("Debes seleccionar una forma de pago");
             return;
         }
@@ -180,7 +179,7 @@ $(document).ready(function() {
             data.prices = prices;
             data.client = client;
             data.total = totalPay;
-            data.pay=payMode;
+            data.pay = payMode;
 
             $.ajax({
                 type: "POST",

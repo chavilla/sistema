@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Plutón</title>
 
     <!-- Scripts -->
@@ -20,10 +19,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="pt-2 bg-active shadow-sm">
+    <div id="app" class="app">
+        <nav class="pt-2 shadow-sm">
             <div class="container d-flex">
-                <a class="navbar-brand  d-flex align-items-center text-decoration-none w-25" href="{{ url('/') }}">
+                <a class="navbar-brand text-white  d-flex align-items-center text-decoration-none w-25" href="{{ url('/') }}">
                    <strong>Plutón</strong>
                 </a>
                 <div class="w-75 d-flex align-items-center" id="navbarSupportedContent">
@@ -33,7 +32,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @else
                             <li class="nav-item dropdown">
@@ -66,14 +65,14 @@
         </nav>
         @guest
         @else
-        <nav class="navegacion w-100  p-3 d-flex flex-row position-relative">
+        <nav class="bg-orange w-100  p-3 d-flex flex-row position-relative">
             <div class="dropdown pr-3 pr-lg-5">
                 <a class="btn dropdown-toggle text-white font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Movimientos
                 </a>
                 <div class="dropdown-menu submenu-movimientos" style="" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_invoices')}}">Facturación</a>
-                    <a class="dropdown-item text-primary py-2 text-left" href="#">Inventarios</a>
+                    <a class="dropdown-item text-orange py-2 text-left" href="{{route('list_invoices')}}">Facturación</a>
+                    <a class="dropdown-item text-orange py-2 text-left" href="#">Inventarios</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -81,23 +80,24 @@
                 Consultas
                 </a>
                 <div class="dropdown-menu submenu-movimientos" style="" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_clients')}}">Clientes</a>
-                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_entries')}}">Entradas</a>
-                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_products')}}">Productos</a>
-                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_categories')}}">categorías productos</a>
-                <a class="dropdown-item text-primary py-2 text-left" href="{{route('list_user')}}">Usuarios</a>
+                <a class="dropdown-item text-orange py-2 text-left" href="{{route('list_clients')}}">Clientes</a>
+                <a class="dropdown-item text-orange py-2 text-left" href="{{route('list_entries')}}">Entradas</a>
+                <a class="dropdown-item text-orange py-2 text-left" href="{{route('list_products')}}">Productos</a>
+                <a class="dropdown-item text-orange py-2 text-left" href="{{route('list_categories')}}">categorías productos</a>
+                <a class="dropdown-item text-orange py-2 text-left" href="{{route('list_user')}}">Usuarios</a>
                 </div>
             </div>
         </nav>  
         @endguest
-
-        <main class="py-4">
-            @yield('content')
-        </main>
     </div>
+    <main class="py-4" class="mainApp">
+        @yield('content')
+    </main>
     @section('footer') 
-    <footer class="bg-dark mt-5">
-        <p class="text-white text-center">Todos los derechos reservados &copy; Chaviweb <?php echo date('Y'); ?> </p>
+    <footer class="bg-brown mt-5 border-top">
+        <div class="h-100">
+            <p class="text-white text-center">Todos los derechos reservados &copy; Chaviweb <?php echo date('Y'); ?> </p>
+        </div>
     </footer>    
     @show
 </body>

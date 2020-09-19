@@ -12,7 +12,7 @@
         <strong >{{ session('status') }}</strong>
     </div>
 @endif
-<div class="container cont-frm">
+<div class="container">
 <form action="{{  isset($product) ? action('ProductController@update'): action('ProductController@save')}}" id="crearProducto" class="frm-crear-p row mt-5" method="post">
     {{ csrf_field() }}
         <div class="form-group col-md-6">

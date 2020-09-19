@@ -73,8 +73,20 @@ body {
   max-height: 100%;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
   overflow-x: hidden;
+}
+
+main{
+  min-height: calc(100vh - 181px);
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer{
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -6983,7 +6995,11 @@ button.bg-secondary:focus {
 }
 
 .bg-orange{
-  background-color: #f6993f !important;
+  background-color: #FA521C !important;
+}
+
+.bg-brown{
+  background-color: #333 !important;
 }
 
 a.bg-success:hover,
@@ -10757,6 +10773,10 @@ a.text-dark:focus {
   color: #6c757d !important;
 }
 
+.text-orange{
+  color: #FA521C !important;
+}
+
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important;
 }
@@ -10918,19 +10938,7 @@ a.text-dark:focus {
 }
 
 .btn-login{
-  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
- background-blend-mode: multiply,multiply;
  padding: .5rem 2rem;
-}
-
-.navegacion{
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%) !important;
-}
-
-.header-frm{
-  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
-  background-blend-mode: multiply,multiply;
-  color: var(--white);
 }
 
 .information p{
@@ -11017,12 +11025,4 @@ a.text-dark:focus {
 
 #tabla-productos td, #tabla-entradas td, #tabla-facturas td{
   font-size: 1rem !important;
-}
-
-footer{
-  height: 5rem !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction:column;
 }
