@@ -117,6 +117,7 @@
 
 var $ = jQuery.noConflict();
 $(document).ready(function() {
+
     $.ajaxSetup({
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
@@ -183,12 +184,12 @@ $(document).ready(function() {
 
             $.ajax({
                 type: "POST",
-                url: baseUrl() + "save-invoice",
+                url: "save-invoice",
                 data: { datos: data },
                 dataType: "json",
                 success: function(json) {
                     if (json.message) {
-                        window.location = baseUrl() + "list-invoices";
+                        window.location = "list-invoices";
                     }
                 }
             });
@@ -198,7 +199,7 @@ $(document).ready(function() {
     btnCancel.click(() => {
         var cancel = confirm("¿Desea cancelar la factura?");
         if (cancel) {
-            window.location = baseUrl() + "list-invoices";
+            window.location ="list-invoices";
         }
     });
 });

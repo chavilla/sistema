@@ -104,9 +104,19 @@
                 </div>
             </div>
         </div>
-
-        
-        
+    </section>
+    <section class="content">
+        <h2 class="display-4 text-center mb-5">Gráficos</h2>
+        <div class="container mb-5">
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Gráfica Lineal</h2>
+                    <hr>
+                    <div id="myfirstchart" style="height: 250px;"></div>
+                </div>
+            </div>
+        </div>
     </section>      
 </div>
 @endsection
