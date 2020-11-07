@@ -4978,7 +4978,6 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
 
@@ -10702,6 +10701,10 @@ a.text-primary:focus {
   color: #1d68a7 !important;
 }
 
+.text-gray{
+  color: #666666;
+}
+
 .text-secondary {
   color: #6c757d !important;
 }
@@ -11025,4 +11028,16 @@ a.text-dark:focus {
 
 #tabla-productos td, #tabla-entradas td, #tabla-facturas td{
   font-size: 1rem !important;
+}
+
+
+/* LOGIN */
+
+.body-login{
+  background: linear-gradient(170deg,#EEE8E2,#F1AB61);
+  min-height: 100vh;
+}
+
+.ctn-login{
+  height: 100% !important;
 }

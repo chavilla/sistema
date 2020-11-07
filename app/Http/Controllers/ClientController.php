@@ -60,7 +60,6 @@ class ClientController extends Controller
 
     public function update(Request $request){
 
-
         $validate=$this->validate($request,[
             'name' => ['required', 'alpha', 'max:255'],
             'nit' =>['required','string','max:255', Rule::unique('clients')->ignore($request->id),],

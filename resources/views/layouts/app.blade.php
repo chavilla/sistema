@@ -27,7 +27,7 @@
         <nav class="pt-2 shadow-sm">
             <div class="container d-flex">
                 <a class="navbar-brand text-white  d-flex align-items-center text-decoration-none w-25" href="{{ url('/') }}">
-                   <strong>Plutón</strong>
+                  <img src="{{asset('img/logo-outlet.png')}}" />
                 </a>
                 <div class="w-75 d-flex align-items-center" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -75,7 +75,7 @@
                 Movimientos
                 </a>
                 <div class="dropdown-menu submenu-movimientos" style="" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item text-orange py-2 text-left" href="{{route('list_invoices')}}">Facturación</a>
+                    <a class="dropdown-item text-orange py-2 text-left" href="{{route('create_invoice')}}">Facturación</a>
                     <a class="dropdown-item text-orange py-2 text-left" href="#">Inventarios</a>
                 </div>
             </div>
